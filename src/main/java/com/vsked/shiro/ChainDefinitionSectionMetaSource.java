@@ -83,8 +83,7 @@ public class ChainDefinitionSectionMetaSource implements FactoryBean<Ini.Section
         }
         
         //不拦截静态资源js与css
-        section.put("/js/**", "anon");
-        section.put("/css/**", "anon");
+        section.put("/static/**", "anon");
         
         section.put("/login.html", "anon");
         section.put("/page403", "anon");

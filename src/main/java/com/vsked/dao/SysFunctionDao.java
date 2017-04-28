@@ -5,13 +5,7 @@ import java.util.Map;
 
 public interface SysFunctionDao {
 	
-	/**
-	 * 获取所有权限过滤信息 <br/>
-	 * @return
-	 */
-	public List<Map<String, Object>> getSysFunctionList();
-	
-	public List<Map<String, Object>> getSysFunction(Map<String,Object> m);//分页查询
+	public List<Map<String, Object>> getSysFunctionList(Map<String,Object> m);//分页查询
 	/**
 	 * 查询表中的数据数
 	 * @return

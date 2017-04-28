@@ -4,8 +4,7 @@
 <mapper namespace="com.vsked.dao.SysFunctionDao">
 
 	<select id="getSysFunctionList" resultType="java.util.Map">
-		select * from sysFunctionT a left JOIN sysPermissionT b on
-		a.spId=b.spId left JOIN sysRoleT c on a.srId=c.srId
+		select * from sysFunctionT 
 		<include refid="myWhere" />
 		ORDER BY sfAddTime desc
 	</select>
@@ -82,23 +81,10 @@
 	<sql id="myWhere">
 		<where>
 			<if test="sfId != null and sfId != ''">
-				and sfId = {#sfId,jdbcType=VARCHAR}
+				and sfId = #{sfId,jdbcType=VARCHAR}
 			</if>
 			<if test="sfValue != null and sfValue != ''">
-				<!-- and sfValue = {#sfValue,jdbcType=VARCHAR} -->
-				and sfValue like concat('%',#{sfValue,jdbcType=VARCHAR},'%')
-			</if>
-			<if test="spId != null and spId != ''">
-				and spId = {#spId,jdbcType=VARCHAR}
-			</if>
-			<if test="srId != null and srId != ''">
-				and srId = {#srId,jdbcType=VARCHAR}
-			</if>
-			<if test="sfType != null and sfType != ''">
-				and sfType = {#sfType,jdbcType=VARCHAR}
-			</if>
-			<if test="sfAddTime != null and sfAddTime != ''">
-				and sfAddTime = {#sfAddTime,jdbcType=VARCHAR}
+				and sfValue like '%'||#{sfValue,jdbcType=VARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

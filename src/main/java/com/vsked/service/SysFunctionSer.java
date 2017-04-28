@@ -38,12 +38,14 @@ public class SysFunctionSer extends BaseService {
 	}
 
 	public List<Map<String, Object>> getSysFunctionList() {
-		return sysFunctionDao.getSysFunctionList();
+		Map<String, Object> m=new HashMap<String, Object>();
+		return sysFunctionDao.getSysFunctionList(m);
 	}
 
 	public String getSysFunction() {
 		Session session = getSession();
-		List<Map<String, Object>> sysFunctionList = sysFunctionDao.getSysFunctionList();
+		Map<String, Object> m=new HashMap<String, Object>();
+		List<Map<String, Object>> sysFunctionList = sysFunctionDao.getSysFunctionList(m);
 		session.setAttribute("sysFunction", sysFunctionList);
 		return "system/sysFunctionAdd";
 	}
