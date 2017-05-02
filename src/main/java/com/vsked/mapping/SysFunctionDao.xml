@@ -12,12 +12,7 @@
 		select count(0) from sysFunctionT
 		<include refid="myWhere" />
 	</select>
-	<select id="sysGetRoleList" resultType="java.util.Map">
-		select * from sysRolet
-	</select>
-	<select id="sysGetPermissionList" resultType="java.util.Map">
-		select * from sysPermissiont
-	</select>
+
 	<select id="getSysFunctionBySfId" resultType="java.util.Map">
 		select * from sysFunctionT where sfId=#{sfId}
 	</select>
@@ -69,8 +64,15 @@
 			<if test="sfValue != null">
 				sfValue= #{sfValue,jdbcType=VARCHAR},
 			</if>
+			
+			<if test="spId != null">
 				spId=#{spId,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="srId != null">
 				srId=#{srId,jdbcType=VARCHAR},
+			</if>
+				
 			<if test="sfType != null">
 				sfType=#{sfType,jdbcType=VARCHAR},
 			</if>

@@ -18,10 +18,6 @@ public interface SysFunctionDao {
 	 */
 	public Map<String, Object> getSysFunctionBySfId(String sfId);
 	
-	public List<Map<String, Object>> sysGetRoleList();//查询所有角色
-	
-	public List<Map<String, Object>> sysGetPermissionList();//查询所有权限
-	
 	public int sysFunctionAdd(Map<String, Object> m);
 	
 	public int sysFunctionEdit(Map<String, Object> m);
