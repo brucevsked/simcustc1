@@ -4,19 +4,19 @@
 <mapper namespace="com.vsked.dao.SysRolePermissionDao">
 
 	<select id="getSysRolePermissionBySrId" resultType="java.util.Map">
-		select * from
-		sysRolePermissionT a LEFT JOIN sysRoleT b on a.srId=b.srId LEFT JOIN
+		select * from 
+		sysRolePermissionT a LEFT JOIN sysRoleT b on a.srId=b.srId LEFT JOIN 
 		sysPermissionT c on a.spId=c.spId where a.srId=#{srId}
 	</select>
 
 	<select id="getHasSysPermissionList" resultType="java.util.Map">
-		SELECT * FROM syspermissiont a WHERE a.spId in(
+		SELECT * FROM syspermissiont a WHERE a.spId in( 
 		SELECT b.spId FROM sysrolepermissiont b LEFT JOIN syspermissiont c ON b.spId= c.spId LEFT JOIN 
 			sysrolet d ON b.srId=d.srId WHERE b.srId=#{srId})
 	</select>
 	
 	<select id="getNoSysPermissionList" resultType="java.util.Map">
-		SELECT * FROM syspermissiont a WHERE a.spId not in(
+		SELECT * FROM syspermissiont a WHERE a.spId not in( 
 		SELECT b.spId FROM sysrolepermissiont b LEFT JOIN syspermissiont c ON b.spId= c.spId LEFT JOIN 
 			sysrolet d ON b.srId=d.srId WHERE b.srId=#{srId})
 	</select>
@@ -26,7 +26,7 @@
 	</delete>
 	
 	<insert id="sysRolePermissionAdd">
-		insert into sysRolePermissiont(srId,spId,srpAddTime)
+		insert into sysRolePermissiont(srId,spId,srpAddTime) 
 		VALUES(#{srId,jdbcType=VARCHAR},#{spId,jdbcType=VARCHAR},CURRENT_TIMESTAMP)
 	</insert>
 </mapper>
