@@ -27,6 +27,6 @@
 	
 	<insert id="sysRolePermissionAdd">
 		insert into sysRolePermissiont(srId,spId,srpAddTime) 
-		VALUES(#{srId,jdbcType=VARCHAR},#{spId,jdbcType=VARCHAR},CURRENT_TIMESTAMP)
+		VALUES(#{srId,jdbcType=VARCHAR},#{spId,jdbcType=VARCHAR},sysdate)
 	</insert>
 </mapper>

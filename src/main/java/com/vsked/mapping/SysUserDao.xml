@@ -24,11 +24,11 @@
 	<insert id="sysUserAdd" >
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysUserT(suId,suName,suPass,suMobile,suLastVisit) 
-	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{suName,jdbcType=NVARCHAR},#{suPass,jdbcType=NVARCHAR},#{suMobile,jdbcType=NVARCHAR},CURRENT_TIMESTAMP)
+	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{suName,jdbcType=NVARCHAR},#{suPass,jdbcType=NVARCHAR},#{suMobile,jdbcType=NVARCHAR},sysdate)
 	</insert>
 	
 	<update id="sysUserEdit">
-	  update sysUserT set suName=#{suName,jdbcType=NVARCHAR},suMobile=#{suMobile,jdbcType=NVARCHAR},suLastVisit=CURRENT_TIMESTAMP where suId=#{suId,jdbcType=NVARCHAR}
+	  update sysUserT set suName=#{suName,jdbcType=NVARCHAR},suMobile=#{suMobile,jdbcType=NVARCHAR},suLastVisit=sysdate where suId=#{suId,jdbcType=NVARCHAR}
 	</update>
 	
 	<update id="sysUserPassChange">

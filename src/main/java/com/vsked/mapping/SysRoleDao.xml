@@ -20,7 +20,7 @@
 	
 	<insert id="sysRoleAdd" >
 	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
-	  insert into sysRoleT(srId,srName,srAddTime) VALUES(#{myuuid,jdbcType=VARCHAR},#{srName,jdbcType=VARCHAR},CURRENT_TIMESTAMP)
+	  insert into sysRoleT(srId,srName,srAddTime) VALUES(#{myuuid,jdbcType=VARCHAR},#{srName,jdbcType=VARCHAR},sysdate)
 	</insert>
 	
 	<update id="sysRoleEdit">

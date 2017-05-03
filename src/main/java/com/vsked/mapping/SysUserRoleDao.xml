@@ -61,7 +61,7 @@
 
 	<insert id="sysUserRoleAdd">
 		insert into sysUserRoleT(suId,srId,surAddTime) 
-		VALUES(#{suId,jdbcType=VARCHAR},#{srId,jdbcType=VARCHAR},CURRENT_TIMESTAMP)
+		VALUES(#{suId,jdbcType=VARCHAR},#{srId,jdbcType=VARCHAR},sysdate)
 	</insert>
 
 </mapper>
