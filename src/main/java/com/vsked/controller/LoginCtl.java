@@ -29,21 +29,6 @@ public class LoginCtl {
 	@Resource
 	private SysUserSer sysUserSer;
 	
-	/**
-	 * 登陆页面只能用get方式提交
-	 * @return
-	 */
-	@GetMapping("login")
-	public String loginPage(){
-		return "login";
-	}
-	
-	@GetMapping("index")
-	public String index(){
-		System.out.println("get index");
-		log.info("here is messagea1");
-		return "index";
-	}
 	
 	@PostMapping("user")
 	public String userAdd(HttpServletRequest req){
@@ -84,16 +69,6 @@ public class LoginCtl {
 	}
 	
 	/**
-	 * 主页显示 只能用get方式提交
-	 * @param request
-	 * @return
-	 */
-	@GetMapping("/mainPage")
-	public String mainPage() {
-		return "main";
-	}
-	
-	/**
 	 * 跳转到403页面只能用get方式提交
 	 * @param request
 	 * @return
@@ -103,15 +78,7 @@ public class LoginCtl {
 		return "page403";
 	}
 	
-	/**
-	 * 创建用户会话 只能用post方式提交
-	 * @param req
-	 * @return
-	 */
-	@PostMapping("/login")
-	public String login(HttpServletRequest req) {
-		return sysUserSer.login(req);
-	}
+
 	
 	
     @RequestMapping(value="/logout",method=RequestMethod.GET)

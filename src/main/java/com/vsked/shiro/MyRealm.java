@@ -52,13 +52,14 @@ public class MyRealm extends AuthorizingRealm{
     /**
      * 获取授权信息
      */
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //获取登录时输入的用户名  
     	Map<String,Object> userData = (Map<String, Object>) principalCollection.fromRealm(getName()).iterator().next();
-    	String loginName=(String) userData.get("SUNAME");
+    	String loginName=(String) userData.get("suName");
         Map<String, Object> sysUserParMap=new HashMap<String, Object>();
-        sysUserParMap.put("SUNAME", loginName);
+        sysUserParMap.put("suName", loginName);
         //到数据库获取此用户
         Map<String, Object> user=sysUserSer.getSysUserBySuName(loginName);
         if(user!=null){
@@ -117,7 +118,7 @@ public class MyRealm extends AuthorizingRealm{
             }
         	//-----------------------------------end single user
             //若存在，将此用户存放到登录认证info中  
-            return new SimpleAuthenticationInfo(user, user.get("suPass"), getName());
+            return new SimpleAuthenticationInfo(user, user.get("SUPASS"), getName());
         }
         return null;
     }
