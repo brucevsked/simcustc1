@@ -1,10 +1,9 @@
 package com.vsked.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +25,7 @@ public class LoginCtl {
 	
 	public Logger log = Logger.getLogger(LoginCtl.class);
 	
-	@Resource
+	@Autowired
 	private SysUserSer sysUserSer;
 	
 	

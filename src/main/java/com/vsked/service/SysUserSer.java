@@ -71,7 +71,7 @@ public class SysUserSer extends BaseService{
 		try{
 			m=sysUserDao.getSysUserBySuName(suName);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return m;
 	}
@@ -86,7 +86,7 @@ public class SysUserSer extends BaseService{
 		try{
 			m=sysUserDao.getSysUserBySuId(suId);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return m;
 	}
@@ -101,7 +101,7 @@ public class SysUserSer extends BaseService{
 		try{
 			sysUserCount=sysUserDao.getSysUserCount(m);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return sysUserCount;
 	}
@@ -118,7 +118,7 @@ public class SysUserSer extends BaseService{
 			Session session=getSession();
 			session.setAttribute("sysUser", sysUser);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return "system/sysUserEdit";
 	}
@@ -134,14 +134,14 @@ public class SysUserSer extends BaseService{
 			Session session=getSession();
 			session.setAttribute("sysUser", sysUser);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return "system/sysUserChangePass";
 	}
 	
 	public void getParTest(HttpServletRequest req){
 		Map<String, Object> m=getMaps(req);
-		System.out.println(m);
+		log.debug(m);
 	}
 	
 	public String sysUserList(HttpServletRequest req){
@@ -166,7 +166,7 @@ public class SysUserSer extends BaseService{
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		
 		return sb.toString();

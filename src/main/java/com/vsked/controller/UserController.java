@@ -19,6 +19,11 @@ public class UserController {
 	@Autowired
 	private SysUserSer sysUserSer;
 	
+	/**
+	 * 跳转到登录界面
+	 * @param req
+	 * @return
+	 */
 	@GetMapping("login")
 	public String loginPage(HttpServletRequest req){
 		log.debug(""+req.getRequestedSessionId());
@@ -26,7 +31,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 创建用户会话 只能用post方式提交
+	 * 用户登录处理创建用户会话 只能用post方式提交
 	 * @param req
 	 * @return
 	 */
@@ -35,9 +40,18 @@ public class UserController {
 		return sysUserSer.login(req);
 	}
 	
+	/**
+	 * 登录成功后主页
+	 * @return
+	 */
 	@GetMapping("index")
 	public String index(){
 		return "index";
+	}
+	
+	@GetMapping("userList")
+	public String userListPage(){
+		return "userList";
 	}
 
 }
