@@ -52,16 +52,16 @@
 	</select>
 
 	<delete id="sysUserRoleDelBySrId">
-		delete from sysUserRoleT where srId=#{srId,jdbcType=VARCHAR}
+		delete from sysUserRoleT where srId=#{srId,jdbcType=NVARCHAR}
 	</delete>
 
 	<delete id="sysUserRoleDelBySuId">
-		delete from sysUserRoleT where suId=#{suId,jdbcType=VARCHAR}
+		delete from sysUserRoleT where suId=#{suId,jdbcType=NVARCHAR}
 	</delete>
 
 	<insert id="sysUserRoleAdd">
 		insert into sysUserRoleT(suId,srId,surAddTime) 
-		VALUES(#{suId,jdbcType=VARCHAR},#{srId,jdbcType=VARCHAR},sysdate)
+		VALUES(#{suId,jdbcType=NVARCHAR},#{srId,jdbcType=NVARCHAR},sysdate)
 	</insert>
 
 </mapper>

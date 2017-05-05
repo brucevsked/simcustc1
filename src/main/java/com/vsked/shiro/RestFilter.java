@@ -6,27 +6,30 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authz.HttpMethodPermissionFilter;
 
 public class RestFilter extends HttpMethodPermissionFilter{
 	
+	private static final Logger log = Logger.getLogger(RestFilter.class);
+			
 	@Override
 	public boolean isAccessAllowed(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws IOException {
 		HttpServletRequest req=(HttpServletRequest) request;
-		System.out.println("-----------s1,method|"+req.getMethod());
-		System.out.println("-----------s2,url|"+req.getRequestURI());
+		log.debug("reqmethod|"+req.getMethod());
+		log.debug("requrl|"+req.getRequestURI());
 		String resourceFront=req.getRequestURI();
 		String[] tmpArray=resourceFront.split("/");
 		String permissionMethod=req.getMethod().toLowerCase();
 		
 		String permission=tmpArray[2]+":"+permissionMethod;
-		System.out.println(resourceFront);
+		log.debug(resourceFront);
 		
 		Subject subject = getSubject(request, response);
 		
-		System.out.println("---------s3,hasPermission|"+subject.isPermitted(permission));
+		log.debug("hasPermission|"+subject.isPermitted(permission));
 		
 		return subject.isPermitted(permission);
 	}

@@ -1,8 +1,16 @@
 
 var basePath=document.getElementsByTagName('base')[0].href;
 
+toastr.options = {
+		closeButton : true,
+		progressBar : true,
+		showMethod : 'slideDown',
+		positionClass : "toast-bottom-right",
+		timeOut : 5000
+};
+
 $(function(){
-	console.log('here is index page')
+	console.log('welcome to simcustc1 system')
 });
 
 function loadPage(pageUrl,data,callback){

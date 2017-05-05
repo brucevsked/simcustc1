@@ -15,7 +15,14 @@ request.setAttribute("basePath", basePath);
   </head>
   
   <body>
-    <table id="mytb">
+  
+  <div id="searchPanel" class="easyui-panel">
+  <label>用户名</label><input id="suName" name="suName" >
+  <button class="easyui-linkbutton" type="button" onclick="query()">查询</button> <br>
+  <button class="easyui-linkbutton" type="button" onclick="edit()">编辑</button>
+  </div>
+  
+    <table id="mytb" toolbar="#searchPanel">
     <thead>
       <tr>
         <th field="SUNAME" >用户名</th>

@@ -48,7 +48,7 @@ public class SysUserSer extends BaseService{
 				AuthenticationToken token=new UsernamePasswordToken(suName, suPass);
 				//使用shiro管理登录
 				SecurityUtils.getSubject().login(token);
-				log.info("i has login ok"+suName);
+				log.info("i has login ok|"+suName);
 				return "index";
 			}else{
 				req.setAttribute("error", "用户名或密码为空！");
@@ -155,9 +155,7 @@ public class SysUserSer extends BaseService{
 		int pageSize=p.getPageSize();
 		
 		sb.append("{");
-		sb.append(""+getKey("page")+":"+p.getCurrentPage()+",");
-		sb.append(""+getKey("total")+":"+p.getNumCount()+",");
-		sb.append(""+getKey("records")+":"+p.getCount()+",");
+		sb.append(""+getKey("total")+":"+total+",");
 		sb.append(""+getKey("rows")+":"+"");
 		
 		PageHelper.startPage(pageNum, pageSize);//mybatis分页插件

@@ -20,21 +20,21 @@
 	
 	<insert id="sysRoleAdd" >
 	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
-	  insert into sysRoleT(srId,srName,srAddTime) VALUES(#{myuuid,jdbcType=VARCHAR},#{srName,jdbcType=VARCHAR},sysdate)
+	  insert into sysRoleT(srId,srName,srAddTime) VALUES(#{myuuid,jdbcType=NVARCHAR},#{srName,jdbcType=NVARCHAR},sysdate)
 	</insert>
 	
 	<update id="sysRoleEdit">
-	  update sysRoleT set srName=#{srName,jdbcType=VARCHAR} where srId=#{srId,jdbcType=VARCHAR}
+	  update sysRoleT set srName=#{srName,jdbcType=NVARCHAR} where srId=#{srId,jdbcType=NVARCHAR}
 	</update>
 	
     <delete id="sysRoleDel">
-      delete from sysRoleT where srId=#{srId,jdbcType=VARCHAR}
+      delete from sysRoleT where srId=#{srId,jdbcType=NVARCHAR}
     </delete>
     
 	<sql id="myWhere">
 		<where>
 			<if test="srName !=null ">
-				and srName like  '%'||#{srName,jdbcType=VARCHAR}||'%' 
+				and srName like  '%'||#{srName,jdbcType=NVARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

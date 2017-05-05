@@ -14,6 +14,7 @@ request.setAttribute("basePath", basePath);
     
     <link rel="stylesheet" href="${basePath }static/js/lib/jquery-easyui/themes/default/easyui.css"/>
     <link rel="stylesheet" href="${basePath }static/js/lib/jquery-easyui/themes/icon.css"/>
+    <link rel="stylesheet" href="${basePath }static/js/lib/toastr/toastr.min.css"/>
     <link rel="stylesheet" href="${basePath }static/css/global.css"/>
 
 </head>
@@ -41,6 +42,7 @@ request.setAttribute("basePath", basePath);
 
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/jquery.min.js"></script>
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/lib/jquery-easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/lib/toastr/toastr.min.js"></script>
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/index.js"></script>
 </body>
 </html>

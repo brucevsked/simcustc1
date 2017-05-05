@@ -22,11 +22,11 @@
 	</select>
 	
 	<delete id="sysRolePermissionDelBySrId">
-		delete from sysRolePermissiont where srId=#{srId,jdbcType=VARCHAR}
+		delete from sysRolePermissiont where srId=#{srId,jdbcType=NVARCHAR}
 	</delete>
 	
 	<insert id="sysRolePermissionAdd">
 		insert into sysRolePermissiont(srId,spId,srpAddTime) 
-		VALUES(#{srId,jdbcType=VARCHAR},#{spId,jdbcType=VARCHAR},sysdate)
+		VALUES(#{srId,jdbcType=NVARCHAR},#{spId,jdbcType=NVARCHAR},sysdate)
 	</insert>
 </mapper>
