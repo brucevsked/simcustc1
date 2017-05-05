@@ -28,7 +28,7 @@ import com.vsked.service.BaseService;
 @Transactional
 public class SysUserSer extends BaseService{
 	
-	private Logger log = Logger.getLogger(SysUserSer.class);
+	private static final Logger log = Logger.getLogger(SysUserSer.class);
 	
 	@Autowired
 	private SysUserDao sysUserDao;

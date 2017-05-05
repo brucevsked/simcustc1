@@ -10,5 +10,5 @@ function loadPage(pageUrl,data,callback){
 }
 
 function userList(){
-	loadPage('userList');
+	loadPage('userListPage');
 }

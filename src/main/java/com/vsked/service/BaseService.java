@@ -4,10 +4,7 @@ import java.io.File;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -15,21 +12,16 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.vsked.common.Page;
-import com.vsked.dao.SysUserDao;
 
 @Service
 @Transactional
 public class BaseService {
 	
-	public Logger log = Logger.getLogger(this.getClass());
+	private static final Logger log = Logger.getLogger(BaseService.class);
 	
 	String currentPageName="page";
 	String pageSizeName="rows";
-	
-	@Resource
-	private SysUserDao sysUserDao;
 	
 	/**
 	 * 获取分页信息
@@ -124,13 +116,6 @@ public class BaseService {
 		map.put(key, newObject);
 		
 		return map;
-	}
-	
-	public void getMyLog(Exception e,Logger log){
-		//手工回滚事务防止出现不跳页
-//		TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-		log.error(e.getMessage());
-		e.printStackTrace();
 	}
 	
 	public String getMyAppPath(HttpServletRequest req){

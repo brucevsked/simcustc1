@@ -2,9 +2,6 @@ package com.vsked.service;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.Resource;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +15,9 @@ import com.vsked.dao.SysPermissionDao;
 @Transactional
 public class SysPermissionSer extends BaseService{
 	
-	public Logger log = Logger.getLogger(this.getClass());
+	private static final Logger log = Logger.getLogger(SysPermissionSer.class);
 	
-	@Resource
+	@Autowired
 	SysPermissionDao sysPermissionDao;
 	
 	public int getSysPermissionCount(Map<String, Object> m){
@@ -28,7 +25,7 @@ public class SysPermissionSer extends BaseService{
 		try{
 			count=sysPermissionDao.getSysPermissionCount(m);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return count;
 	}
@@ -38,7 +35,7 @@ public class SysPermissionSer extends BaseService{
 		try{
 			m=sysPermissionDao.getSysPermissionBySpId(spId);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return m;
 	}
@@ -49,7 +46,7 @@ public class SysPermissionSer extends BaseService{
 			Session session=getSession();
 			session.setAttribute("sysPermission", sysPermission);
 		}catch(Exception e){
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return "system/sysPermissionEdit";
 	}

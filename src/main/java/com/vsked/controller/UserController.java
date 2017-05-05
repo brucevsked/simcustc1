@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vsked.service.SysUserSer;
 
@@ -49,9 +50,15 @@ public class UserController {
 		return "index";
 	}
 	
-	@GetMapping("userList")
+	@GetMapping("userListPage")
 	public String userListPage(){
 		return "userList";
+	}
+	
+	@GetMapping("userListData")
+	@ResponseBody
+	public String userListData(HttpServletRequest req){
+		return sysUserSer.sysUserList(req);
 	}
 
 }

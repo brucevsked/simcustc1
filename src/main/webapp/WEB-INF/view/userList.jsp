@@ -15,7 +15,16 @@ request.setAttribute("basePath", basePath);
   </head>
   
   <body>
-    userlist page. 列表权限<br>
+    <table id="mytb">
+    <thead>
+      <tr>
+        <th field="SUNAME" >用户名</th>
+        <th field="SUMOBILE" >手机号</th>
+        <th field="SUNICK" >别名</th>
+        <th field="SUQQ" > qq号</th>
+      </tr>
+    </thead>
+    </table>
     
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/userList.js"></script>
   

@@ -3,15 +3,12 @@ package com.vsked.service;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.vsked.dao.SysRolePermissionDao;
 
 
@@ -20,9 +17,9 @@ import com.vsked.dao.SysRolePermissionDao;
 @Transactional
 public class SysRolePermissionSer extends BaseService {
 	
-	public Logger log = Logger.getLogger(this.getClass());
+	private static final Logger log = Logger.getLogger(SysRolePermissionSer.class);
 
-	@Resource
+	@Autowired
 	SysRolePermissionDao sysRolePermissionDao;
 	
 	public List<Map<String, Object>> getSysRolePermissionBySrId(String srId) {
@@ -50,8 +47,7 @@ public class SysRolePermissionSer extends BaseService {
 			String srId = (String) myData.get("srId");
 			String object = (String) myData.get("hasPermissionIds");
 			String[] spId = object.split(",");
-			List<Map<String, Object>> rolePermission = sysRolePermissionDao
-					.getSysRolePermissionBySrId(srId);
+			List<Map<String, Object>> rolePermission = sysRolePermissionDao.getSysRolePermissionBySrId(srId);
 			if (rolePermission.size() > 0) {
 				int row = sysRolePermissionDao.sysRolePermissionDelBySrId(srId);
 				if (row > 0) {
@@ -77,7 +73,7 @@ public class SysRolePermissionSer extends BaseService {
 				}
 			}
 		} catch (Exception e) {
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return "system/sysRoleList";
 	}

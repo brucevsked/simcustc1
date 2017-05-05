@@ -4,10 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +19,9 @@ import com.vsked.dao.SysUserRoleDao;
 @Transactional
 public class SysUserRoleSer extends BaseService {
 	
-	public Logger log = Logger.getLogger(this.getClass());
+	private static final Logger log = Logger.getLogger(SysUserRoleSer.class);
 
-	@Resource
+	@Autowired
 	SysUserRoleDao sysUserRoleDao;
 
 
@@ -100,9 +97,8 @@ public class SysUserRoleSer extends BaseService {
 					}
 				}
 			}
-			Session session = getSession();
 		} catch (Exception e) {
-			getMyLog(e,log);
+			log.error(e.getMessage());
 		}
 		return "system/sysUserList";
 	}
