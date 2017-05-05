@@ -65,6 +65,11 @@ public class UserController {
 		return sysUserSer.sysUserList(req);
 	}
 	
+	@GetMapping("userAddPage")
+	public String userAddPage(){
+		return "userAdd";
+	}
+	
 	/**
 	 * 跳转到403页面只能用get方式提交
 	 * @param request

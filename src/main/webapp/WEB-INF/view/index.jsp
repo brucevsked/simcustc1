@@ -28,8 +28,8 @@ request.setAttribute("basePath", basePath);
         <a href="${basePath }logout" class="easyui-linkbutton" >退出登录</a>
         </div>
 <div id="mm1">
-<div onclick="userList();">用户列表</div>
-<div>用户添加</div>
+<div onclick="userListPage();">用户列表</div>
+<div onclick="userAddPage();">用户添加</div>
 <div>角色列表</div>
 <div>角色添加</div>
 <div>权限列表</div>

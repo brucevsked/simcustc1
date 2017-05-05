@@ -17,6 +17,10 @@ function loadPage(pageUrl,data,callback){
 	$('#mainDiv').load(basePath+pageUrl,data,callback);
 }
 
-function userList(){
+function userListPage(){
 	loadPage('userListPage');
+}
+
+function userAddPage(){
+	loadPage('userAddPage');
 }
