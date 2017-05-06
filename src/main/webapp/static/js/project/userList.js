@@ -45,6 +45,6 @@ function edit(){
 	if (row){
 		console.log(row.SUID);
 	}else{
-		toastr.info('请选择行', '提示')
+		toastr.info('请选择行', '提示');
 	}
 }

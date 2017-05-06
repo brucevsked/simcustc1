@@ -170,4 +170,22 @@ public class SysUserSer extends BaseService{
 		return sb.toString();
 	}
 	
+	
+	public String userAddProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=sysUserDao.sysUserAdd(data);
+			if(effectLine<=0){
+				result="用户添加失败。";
+			}else{
+				result="用户:"+data.get("suName")+"添加成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="用户添加出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
 }

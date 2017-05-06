@@ -16,7 +16,7 @@ request.setAttribute("basePath", basePath);
   
   <body>
 	<div class="easyui-panel" title="用户添加">
-		<form id="fm" method="post" action="${basePath }userAddproc">
+		<form id="fm" method="post" action="${basePath }userAddProc">
 			<div style="margin-bottom:20px">
      <input class="easyui-textbox" type="text" name="suName" id="suName"   size="35"  label="用户名:" data-options="required:true,missingMessage:'请输入用户名'" />
 			</div>

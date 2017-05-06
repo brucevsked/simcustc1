@@ -70,6 +70,12 @@ public class UserController {
 		return "userAdd";
 	}
 	
+	@PostMapping("userAddProc")
+	@ResponseBody
+	public String userAddProc(HttpServletRequest req){
+		return sysUserSer.userAddProc(req);
+	}
+	
 	/**
 	 * 跳转到403页面只能用get方式提交
 	 * @param request
