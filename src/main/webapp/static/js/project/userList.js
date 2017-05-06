@@ -1,8 +1,5 @@
 
 $(function(){
-    
-
-    
 	$('#mytb').datagrid({
 		title:'用户列表',
         height: 'auto',
@@ -43,7 +40,7 @@ function query(){
 function edit(){
 	var row = $('#mytb').datagrid('getSelected');
 	if (row){
-		console.log(row.SUID);
+		loadPage('userEditPage?suId='+row.SUID);
 	}else{
 		toastr.info('请选择行', '提示');
 	}

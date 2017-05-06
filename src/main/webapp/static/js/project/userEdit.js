@@ -1,7 +1,7 @@
 
 $(function(){
     $.parser.parse();//重新加载样式
-    $('#suName').textbox('textbox').focus(); 
+    $('#suNick').textbox('textbox').focus(); 
 });
 
 function submitForm(){
@@ -9,27 +9,19 @@ function submitForm(){
 		return false;
     }
 	
-	var suName=$('#suName').val();
+	var suId=$('#suId').val();
 	var suNick=$('#suNick').val();
-	var suPass=$('#suPass').val();
-	var suPass1=$('#suPass1').val();
 	var suMobile=$('#suMobile').val();
-	
-	if(suPass!=suPass1){
-		toastr.info('两次密码输入不一致', '提示');
-		return false;
-	}
 	
 	var myBasePath=$('#fm').attr("action");
 	
 	$.post(myBasePath,
 			{
-		suName: suName ,
-		suNick:suNick,
-		suPass:suPass,
+		suId:suId,
+		suNick: suNick ,
 		suMobile:suMobile
 		    },function (dt){
-		    	toastr.info(dt, '添加结果');
+		    	toastr.info(dt, '修改结果');
 		    	}
 		    );
 }

@@ -139,6 +139,6 @@ public class BaseService {
     }
     
     public void addMessage(RedirectAttributes redirectAttributes, String messages) {
-        redirectAttributes.addFlashAttribute("message", messages);
+        redirectAttributes.addFlashAttribute("backMsg", messages);
     }
 }

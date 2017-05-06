@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/";
 request.setAttribute("basePath", basePath);
@@ -36,7 +35,7 @@ request.setAttribute("basePath", basePath);
                 <input type="text" id="suPass" name="suPass" value="000000" style="width:260px;" class="easyui-validatebox"  />
             </div>
              <div style="padding:5px 0;text-align: center;color: red;" id="showMsg"> 
-             <c:if test="${!empty error}"> <c:out value="${error}"/>  </c:if></div>
+             <c:if test="${!empty backMsg}"> <c:out value="${backMsg}"/>  </c:if></div>
             <div region="south" border="false" style="text-align:right;padding:5px 0;">
                 <input type="button" value="登录" onclick="toLogin()" />
                 <input type="reset"  value="重置" />

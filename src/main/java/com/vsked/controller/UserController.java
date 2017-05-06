@@ -76,6 +76,17 @@ public class UserController {
 		return sysUserSer.userAddProc(req);
 	}
 	
+	@GetMapping("userEditPage")
+	public String userEditPage(HttpServletRequest req){
+		return sysUserSer.userEditPage(req);
+	}
+	
+	@PostMapping("userEditProc")
+	@ResponseBody
+	public String userEditProc(HttpServletRequest req){
+		return sysUserSer.userEditProc(req);
+	}
+	
 	/**
 	 * 跳转到403页面只能用get方式提交
 	 * @param request

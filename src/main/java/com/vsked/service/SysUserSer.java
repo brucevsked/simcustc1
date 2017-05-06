@@ -51,12 +51,12 @@ public class SysUserSer extends BaseService{
 				log.info("i has login ok|"+suName);
 				return "index";
 			}else{
-				req.setAttribute("error", "用户名或密码为空！");
+				getSession().setAttribute("backMsg", "用户名或密码为空！");
 				return "login";
 			}
 		}catch(Exception e){
 			log.error(e.getMessage());
-			req.setAttribute("error", "用户名或密码错误请重新输入！");
+			getSession().setAttribute("backMsg", "用户名或密码错误请重新输入！");
 			return "login";
 		}
 	}
@@ -184,6 +184,38 @@ public class SysUserSer extends BaseService{
 		}catch(Exception e){
 			log.error(e.getMessage());
 			result="用户添加出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String userEditProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=sysUserDao.sysUserEdit(data);
+			if(effectLine<=0){
+				result="用户修改失败。";
+			}else{
+				result="用户:"+data.get("suNick")+"修改成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="用户修改出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String userEditPage(HttpServletRequest req){
+		String result="userListPage";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("suId")){
+			Map<String, Object> data=sysUserDao.getSysUserBySuId((String) parMap.get("suId"));
+			getSession().setAttribute("data", data);
+			result="userEdit";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
 		}
 		return result;
 	}

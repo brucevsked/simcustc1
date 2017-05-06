@@ -53,8 +53,9 @@ public class SysUserDaoTest extends TestMyBatis{
 	public void sysUserAdd(){
 		Map<String, Object> m=new HashMap<String, Object>();
 		m.put("suName", "testusera1");
+		m.put("suNick", "nickName");
 		m.put("suPass", "670b14728ad9902aecba32e22fa4f6bd");
-		m.put("suMobile", "13869170455");
+		m.put("suMobile", "13869170459");
 		int effectLine=sysUserDao.sysUserAdd(m);
 		log.debug(effectLine);
 	}
@@ -62,8 +63,9 @@ public class SysUserDaoTest extends TestMyBatis{
 //	@Test
 	public void sysUserEdit(){
 		Map<String, Object> m=new HashMap<String, Object>();
-		m.put("suId", "774F9DD2073143CDAC95EF45A17390E2");
-		m.put("suName", "testusera1");
+		m.put("suId", "54008A632D45470AAFC74D740C94DC52");
+		m.put("suName", "中文名字登录");
+		m.put("suNick", "这是别名");
 		m.put("suMobile", "1705566788");
 		int effectLine=sysUserDao.sysUserEdit(m);
 		log.debug(effectLine);
