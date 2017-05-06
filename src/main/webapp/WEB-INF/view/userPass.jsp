@@ -10,21 +10,21 @@ request.setAttribute("basePath", basePath);
   <head>
     <base href="${basePath }">
     
-    <title>用户信息修改</title>
+    <title>用户密码修改</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   
   <body>
-	<div class="easyui-panel" title="用户信息修改">
+	<div class="easyui-panel" title="用户密码修改">
 		<form id="fm" method="post" action="${basePath }userEditProc">
-        <input type="hidden" name="suId" id="suId" value="${data.SUID }" />
+		<input type="hidden" name="suId" id="suId" value="${data.SUID }" />
 		<br/>
-			<div style="margin-bottom:20px;margin-left:2%">
-     <input class="easyui-textbox" type="text" name="suNick" id="suNick" value="${data.SUNICK }" label="用户别名:" data-options="required:true,missingMessage:'请输入用户别名'" style="width:30%" />
-			</div>
 <div style="margin-bottom:20px;margin-left:2%">
-<input class="easyui-textbox" type="text" name="suMobile" id="suMobile" value="${data.SUMOBILE }" label="手机号:" style="width:30%" />
+<input class="easyui-textbox" type="text" name="suPass" id="suPass" label="密码:" data-options="required:true,missingMessage:'请输入用户密码'" style="width:30%"/>
+</div>
+<div style="margin-bottom:20px;margin-left:2%">
+<input class="easyui-textbox" type="text" name="suPass1" id="suPass1" label="确认密码:"  data-options="required:true,missingMessage:'请确认用户密码'" style="width:30%" />
 </div>
 <div style="margin-bottom:20px;margin-left:15%">
     <button type="button" class="easyui-linkbutton" onclick="submitForm();">修改</button> 

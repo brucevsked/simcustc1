@@ -117,6 +117,8 @@ public class MyRealm extends AuthorizingRealm{
                 }
             }
         	//-----------------------------------end single user
+            //将用户信息放入session
+            SecurityUtils.getSubject().getSession().setAttribute("user", user);
             //若存在，将此用户存放到登录认证info中  
             return new SimpleAuthenticationInfo(user, user.get("SUPASS"), getName());
         }
