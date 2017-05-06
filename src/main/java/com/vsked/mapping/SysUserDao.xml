@@ -28,7 +28,7 @@
 	</insert>
 	
 	<update id="sysUserEdit">
-	  update sysUserT set suNick=#{suNick,jdbcType=NVARCHAR},suMobile=#{suMobile,jdbcType=NVARCHAR},suLastVisit=sysdate where suId=#{suId,jdbcType=NVARCHAR}
+	  update sysUserT set suNick=#{suNick,jdbcType=NVARCHAR},suMobile=#{suMobile,jdbcType=NVARCHAR} where suId=#{suId,jdbcType=NVARCHAR}
 	</update>
 	
 	<update id="sysUserPassChange">
