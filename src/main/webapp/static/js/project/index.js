@@ -24,3 +24,11 @@ function userListPage(){
 function userAddPage(){
 	loadPage('userAddPage');
 }
+
+function roleListPage(){
+	loadPage('roleListPage');
+}
+
+function roleAddPage(){
+	loadPage('roleAddPage');
+}
