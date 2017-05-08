@@ -4,6 +4,10 @@ $(function(){
     $('#suNick').textbox('textbox').focus(); 
 });
 
+/**
+ * 修改提交
+ * @returns {Boolean}
+ */
 function submitForm(){
 	if(!$("#fm").form('validate')){
 		return false;

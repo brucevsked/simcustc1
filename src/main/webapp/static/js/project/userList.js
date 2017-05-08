@@ -1,5 +1,6 @@
 
 $(function(){
+	
 	$('#mytb').datagrid({
 		title:'用户列表',
         height: 'auto',
@@ -8,7 +9,7 @@ $(function(){
         striped: true,
         border: true, 
         url:basePath+'userListData',
-        idField:'SUID', 
+        idField:'SUID', //指定主键字段
         singleSelect:true,//是否单选 
         pagination:true,//分页控件 
         rownumbers:true //行号 
@@ -30,6 +31,9 @@ $(function(){
     
 });
 
+/**
+ * 查询方法
+ */
 function query(){
 	var suName=$('#suName').val();
 	$('#mytb').datagrid('load',{
@@ -37,6 +41,9 @@ function query(){
 	});
 }
 
+/**
+ * 修改方法
+ */
 function edit(){
 	var row = $('#mytb').datagrid('getSelected');
 	if (row){

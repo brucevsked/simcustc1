@@ -4,6 +4,10 @@ $(function(){
     $('#suName').textbox('textbox').focus(); 
 });
 
+/**
+ * 添加提交
+ * @returns {Boolean}
+ */
 function submitForm(){
 	if(!$("#fm").form('validate')){
 		return false;
