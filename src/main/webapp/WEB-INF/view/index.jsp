@@ -32,8 +32,8 @@ request.setAttribute("basePath", basePath);
 <div onclick="userAddPage();">用户添加</div>
 <div onclick="roleListPage();">角色列表</div>
 <div onclick="roleAddPage();">角色添加</div>
-<div>权限列表</div>
-<div>权限添加</div>
+<div onclick="permissionListPage();">权限列表</div>
+<div onclick="permissionAddPage();">权限添加</div>
 </div>
          <!-- menu end -->
         </div>

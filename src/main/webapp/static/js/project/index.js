@@ -32,3 +32,12 @@ function roleListPage(){
 function roleAddPage(){
 	loadPage('roleAddPage');
 }
+
+function permissionListPage(){
+	loadPage('permissionListPage');
+}
+
+function permissionAddPage(){
+	loadPage('permissionAddPage');
+}
+

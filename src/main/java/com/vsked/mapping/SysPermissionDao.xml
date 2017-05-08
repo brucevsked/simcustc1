@@ -34,6 +34,9 @@
     
 	<sql id="myWhere">
 		<where>
+			<if test="spName !=null ">
+				and spName like '%'||#{spName,jdbcType=NVARCHAR}||'%' 
+			</if>
 			<if test="spNick !=null ">
 				and spNick like '%'||#{spNick,jdbcType=NVARCHAR}||'%' 
 			</if>
