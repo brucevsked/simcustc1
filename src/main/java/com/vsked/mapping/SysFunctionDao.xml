@@ -4,7 +4,7 @@
 <mapper namespace="com.vsked.dao.SysFunctionDao">
 
 	<select id="getSysFunctionList" resultType="java.util.Map">
-		select * from sysFunctionT 
+		select * from sysFunctionT LEFT JOIN sysPermissionT on sysFunctionT.spId=sysPermissionT.spId 
 		<include refid="myWhere" />
 		ORDER BY sfAddTime desc
 	</select>
@@ -87,6 +87,9 @@
 			</if>
 			<if test="sfValue != null and sfValue != ''">
 				and sfValue like '%'||#{sfValue,jdbcType=NVARCHAR}||'%' 
+			</if>
+			<if test="spNick != null and spNick != ''">
+				and spNick like '%'||#{spNick,jdbcType=NVARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

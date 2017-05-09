@@ -9,7 +9,7 @@ request.setAttribute("basePath", basePath);
   <head>
     <base href="${basePath }">
     
-    <title>权限列表</title>
+    <title>功能列表</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -17,7 +17,7 @@ request.setAttribute("basePath", basePath);
   <body>
   
   <div id="searchPanel" class="easyui-panel">
-  <input id="spName" name="spName" class="easyui-textbox" label="权限表达式:" style="width: 18%">
+  <input id="sfValue" name="sfValue" class="easyui-textbox" label="功能地址:" style="width: 18%">
   <input id="spNick" name="spNick" class="easyui-textbox" label="权限中文名:" style="width: 18%">
   <button class="easyui-linkbutton" type="button" onclick="query()">&nbsp;查 &nbsp;询&nbsp;</button> <br>
   <button class="easyui-linkbutton" type="button" onclick="edit()">&nbsp;编&nbsp;辑&nbsp;</button>
@@ -26,13 +26,13 @@ request.setAttribute("basePath", basePath);
     <table id="mytb" toolbar="#searchPanel">
     <thead>
       <tr>
-        <th field="SPNAME" >权限表达式</th>
+        <th field="SFVALUE" >功能地址</th>
         <th field="SPNICK" >权限名</th>
       </tr>
     </thead>
     </table>
     
-  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/permissionList.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/functionList.js"></script>
   
   </body>
 </html>

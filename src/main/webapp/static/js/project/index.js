@@ -74,3 +74,17 @@ function permissionAddPage(){
 	loadPage('permissionAddPage');
 }
 
+/**
+ * 载入功能列表页
+ */
+function functionListPage(){
+	loadPage('functionListPage');
+}
+
+/**
+ * 载入功能添加页
+ */
+function functionAddPage(){
+	loadPage('functionAddPage');
+}
+
