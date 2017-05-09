@@ -27,4 +27,15 @@ public class FunctionController {
 	public String functionListData(HttpServletRequest req){
 		return sysFunctionSer.sysFunctionList(req);
 	}
+	
+	@GetMapping("functionAddPage")
+	public String functionAddPage(){
+		return "functionAdd";
+	}
+	
+	@PostMapping("functionAddProc")
+	@ResponseBody
+	public String functionAddProc(HttpServletRequest req){
+		return sysFunctionSer.functionAddProc(req);
+	}
 }

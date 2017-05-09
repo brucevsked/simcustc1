@@ -76,24 +76,21 @@ public class SysFunctionSer extends BaseService {
 		return sb.toString();
 	}
 
-	public String getSysFunction() {
-		Session session = getSession();
-		Map<String, Object> m=new HashMap<String, Object>();
-		List<Map<String, Object>> sysFunctionList = sysFunctionDao.getSysFunctionList(m);
-		session.setAttribute("sysFunction", sysFunctionList);
-		return "system/sysFunctionAdd";
-	}
-	
-
-	public String sysFunctionEditPage(String sfId) {
-		try {
-			Map<String, Object> sysFunction = sysFunctionDao.getSysFunctionBySfId(sfId);
-			Session session = getSession();
-			session.setAttribute("sysFunction", sysFunction);
-		} catch (Exception e) {
+	public String functionAddProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=sysFunctionDao.sysFunctionAdd(data);
+			if(effectLine<=0){
+				result="功能添加失败。";
+			}else{
+				result="功能:"+data.get("sfValue")+"添加成功.";
+			}
+		}catch(Exception e){
 			log.error(e.getMessage());
+			result="功能添加出现异常,请联系管理员.";
 		}
-		return "system/sysFunctionEdit";
+		return result;
 	}
 
 }

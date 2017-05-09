@@ -27,6 +27,12 @@ public class PermissionController {
 		return sysPermissionSer.sysPermissionList(req);
 	}
 	
+	@PostMapping("permissionListDataAll")
+	@ResponseBody
+	public String permissionListDataAll(){
+		return sysPermissionSer.sysPermissionList();
+	}
+	
 	@GetMapping("permissionAddPage")
 	public String permissionAddPage(){
 		return "permissionAdd";

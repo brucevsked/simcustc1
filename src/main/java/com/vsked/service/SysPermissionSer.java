@@ -3,15 +3,11 @@ package com.vsked.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.github.pagehelper.PageHelper;
 import com.vsked.common.BaseJson;
 import com.vsked.common.Page;
@@ -66,6 +62,20 @@ public class SysPermissionSer extends BaseService{
 		String dataListJson=BaseJson.listToJson(dataList);
 		sb.append(dataListJson);
 		sb.append("}");
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		
+		return sb.toString();
+	}
+	
+	public String sysPermissionList(){
+		StringBuilder sb=new StringBuilder();
+		try{
+			Map<String, Object> m=new HashMap<String, Object>();
+		    List<Map<String, Object>> dataList=sysPermissionDao.getSysPermissionList(m);
+		    String dataListJson=BaseJson.listToJson(dataList);
+		    sb.append(dataListJson);
 		}catch(Exception e){
 			log.error(e.getMessage());
 		}
