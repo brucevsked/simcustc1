@@ -10,10 +10,7 @@ import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.vsked.dao.SysUserRoleDao;
-
-
 
 @Service
 @Transactional

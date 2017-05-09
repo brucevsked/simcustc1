@@ -38,4 +38,15 @@ public class FunctionController {
 	public String functionAddProc(HttpServletRequest req){
 		return sysFunctionSer.functionAddProc(req);
 	}
+	
+	@GetMapping("functionEditPage")
+	public String functionEditPage(HttpServletRequest req){
+		return sysFunctionSer.functionEditPage(req);
+	}
+	
+	@PostMapping("functionEditProc")
+	@ResponseBody
+	public String functionEditProc(HttpServletRequest req){
+		return sysFunctionSer.functionEditProc(req);
+	}
 }

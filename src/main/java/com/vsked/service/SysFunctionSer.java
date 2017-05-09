@@ -4,15 +4,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.github.pagehelper.PageHelper;
 import com.vsked.common.BaseJson;
 import com.vsked.common.Page;
@@ -89,6 +85,38 @@ public class SysFunctionSer extends BaseService {
 		}catch(Exception e){
 			log.error(e.getMessage());
 			result="功能添加出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String functionEditProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=sysFunctionDao.sysFunctionEdit(data);
+			if(effectLine<=0){
+				result="功能修改失败。";
+			}else{
+				result="功能:"+data.get("sfValue")+"修改成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="功能修改出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String functionEditPage(HttpServletRequest req){
+		String result="functionListPage";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("sfId")){
+			Map<String, Object> data=sysFunctionDao.getSysFunctionBySfId((String) parMap.get("sfId"));
+			getSession().setAttribute("data", data);
+			result="functionEdit";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
 		}
 		return result;
 	}

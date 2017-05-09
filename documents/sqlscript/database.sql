@@ -103,11 +103,12 @@ comment on column sysPermissionT.spNick       is '权限中文名'    ;
 comment on column sysPermissionT.spAddTime    is '权限添加时间'  ;
 
 
-insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000001','user:list' ,'用户列表') ;
-insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000002','user:add'  ,'用户添加')  ;
-insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000003','user:edit' ,'用户修改') ;
-insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000004','user:del'  ,'用户删除')  ;
-
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000001','userListPage:get'   ,'用户列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000002','userListData:post'  ,'用户列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000003','userAddPage:get'    ,'用户添加页')    ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000004','userAddProc:post'   ,'用户添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000005','userEditPage:get'   ,'用户修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000006','userEditProc:post'  ,'用户修改处理')  ;
 
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -208,12 +209,13 @@ comment on column sysFunctionT.sfAddTime    is '添加时间'        ;
 alter table sysFunctionT add constraint fk_sysFunctionT_spId foreign key(spId) references sysPermissionT(spId);
 alter table sysFunctionT add constraint fk_sysFunctionT_srId foreign key(srId) references sysRoleT(srId)      ;
 
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000001','/LoginController/login.html'  ,null                              ,null,'anon')  ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000002','/sysUser/sysUserList.html'    ,'20000000000000000000000000000001',null,'perms') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000003','/sysUser/sysUserAdd.html'     ,'20000000000000000000000000000002',null,'perms') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000004','/sysUser/sysUserEdit.html'    ,'20000000000000000000000000000003',null,'perms') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000005','/sysUser/sysUserDel.html'     ,'20000000000000000000000000000004',null,'perms') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000006','/test.html'                   ,'20000000000000000000000000000001',null,'roles') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000001','login'                        ,null                              ,null,'anon'   ) ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000002','/userListPage'                ,'20000000000000000000000000000001',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000003','/userListData'                ,'20000000000000000000000000000002',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000004','/userAddPage'                 ,'20000000000000000000000000000003',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000005','/userAddProc'                 ,'20000000000000000000000000000004',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000006','/userEditPage'                ,'20000000000000000000000000000005',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000007','/userEditProc'                ,'20000000000000000000000000000006',null,'cusperm') ;
 
 select * from sysFunctionT;
 /********+*********+*********+*********+*********+*********+*/
