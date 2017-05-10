@@ -1,15 +1,16 @@
 package com.vsked.service;
 
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.github.pagehelper.PageHelper;
+import com.vsked.common.BaseJson;
+import com.vsked.common.Page;
 import com.vsked.dao.SysUserRoleDao;
 
 @Service
@@ -23,80 +24,53 @@ public class SysUserRoleSer extends BaseService {
 
 
 	public List<Map<String, Object>> getSysUserRoleListBySuId(String suId) {
-		return sysUserRoleDao.getSysUserRoleListBySuId(suId);
-	}
-
-	/**
-	 * 跳转用户分配页面，把角色ID存入
-	 * 
-	 * */
-	public String getSysUserRoleBySrId(String srId) {
-		Session session = getSession();
-		session.setAttribute("srId", srId);
-		return "system/sysUserAddOrEdit";
-	}
-
-	/**
-	 * 跳转角色分配页面，把用户ID存入
-	 * 
-	 * */
-	public String getSysUserRoleBySuId(String suId) {
-		Session session = getSession();
-		session.setAttribute("suId", suId);
-		return "system/sysRoleAddOrEdit";
-	}
-
-
-
-	public Set<String> getSysUserRoleNameSetBySuId(String suId) {
-		List<Map<String, Object>> sourceList = getSysUserRoleListBySuId(suId);
-		Set<String> targetSet = new HashSet<String>();
-		for (Map<String, Object> sysUserRole : sourceList) {
-			targetSet.add((String) (sysUserRole.get("srName")));
-		}
-		return targetSet;
-	}
-
-	/**
-	 * 
-	 * 角色关联到用户
-	 * */
-	public String sysRoleAddOrEdit(HttpServletRequest req) {
-		boolean flag = false;
-		try {
-			Map<String, Object> myData = getMaps(req);
-			String suId = (String) myData.get("suId");
-			String object = (String) myData.get("hasRoleIds");
-			String[] srId = object.split(",");
-			List<Map<String, Object>> userRole = sysUserRoleDao
-					.getSysUserRoleListBySuId(suId);
-			if (userRole.size() > 0) {
-				int row = sysUserRoleDao.sysUserRoleDelBySuId(suId);
-				if (row > 0) {
-					for (int i = 0; i < srId.length; i++) {
-						String sid = srId[i];
-						myData.put("suId", suId);
-						myData.put("srId", sid);
-						int row2 = sysUserRoleDao.sysUserRoleAdd(myData);
-						if (row2 > 0) {
-							flag = true;
-						}
-					}
-				}
-			} else {
-				for (int i = 0; i < srId.length; i++) {
-					String sid = srId[i];
-					myData.put("suId", suId);
-					myData.put("srId", sid);
-					int row2 = sysUserRoleDao.sysUserRoleAdd(myData);
-					if (row2 > 0) {
-						flag = true;
-					}
-				}
-			}
-		} catch (Exception e) {
+		List<Map<String, Object>> dataList=new LinkedList<Map<String,Object>>();
+		try{
+			dataList=sysUserRoleDao.getSysUserRoleListBySuId(suId);
+		}catch(Exception e){
 			log.error(e.getMessage());
 		}
-		return "system/sysUserList";
+		return dataList;
+	}
+	/*
+	public String sysUserRoleList(HttpServletRequest req){
+		StringBuilder sb=new StringBuilder();
+		try{
+		Map<String, Object> m=getMaps(req); //封装前台参数为map
+		Page p=getPage(m);//提取分页参数
+		int total=getSysUserCount(m);
+		p.setCount(total);
+		int pageNum=p.getCurrentPage();
+		int pageSize=p.getPageSize();
+		
+		sb.append("{");
+		sb.append(""+getKey("total")+":"+total+",");
+		sb.append(""+getKey("rows")+":"+"");
+		
+		PageHelper.startPage(pageNum, pageSize);//mybatis分页插件
+		List<Map<String, Object>> dataList=sysUserDao.getSysUserList(m);
+		String dataListJson=BaseJson.listToJson(dataList);
+		sb.append(dataListJson);
+		sb.append("}");
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		
+		return sb.toString();
+	}
+	
+	*/
+	
+	public boolean isPermitted(Map<String, Object> parMap){
+		boolean flag=false;
+		try{
+			List<Map<String, Object>> dataList=sysUserRoleDao.isPermitted(parMap);
+			if(dataList.size()>0){
+				flag=true;
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return flag;
 	}
 }

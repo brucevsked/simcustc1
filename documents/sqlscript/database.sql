@@ -23,12 +23,14 @@
 /**  数据查询区  **/
 
 /********+*********+*********+*********+*********+*********+*/
+drop table sysRoleMenuT;
 drop table sysFunctionT ;
 drop table sysRolePermissionT ;
 drop table sysUserRoleT ;
 drop table sysRoleT ;
 drop table sysPermissionT ;
 drop table sysUserT ;
+drop table sysMenuT;
 /********+*********+*********+*********+*********+*********+*/
 
 create table sysUserT(
@@ -58,32 +60,32 @@ comment on column sysUserT.suRegTime    is '注册时间'      ;
 comment on column sysUserT.suLastIp     is '最后登陆IP'    ;
 comment on column sysUserT.suLastVisit  is '最后访问时间'  ;
 
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000001','admin'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000002','zongjingli'       ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000003','fuzongjingli'     ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000004','ciwuzongjian'     ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000005','xushangzongjingli','670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000006','dajiangyouluguo'  ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000007','test1'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000008','test2'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000009','test3'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000010','test4'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000011','test5'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000012','test6'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000013','test7'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000014','test8'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000015','test9'            ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000016','test10'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000017','test11'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000018','test12'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000019','test13'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000020','test14'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000021','test15'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000022','test16'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000023','test17'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000024','test18'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000025','test19'           ,'670b14728ad9902aecba32e22fa4f6bd');
-insert into sysUserT(suId,suName,suPass) VALUES('10000000000000000000000000000026','test20'           ,'670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000001','admin'            ,'a1','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000002','zongjingli'       ,'a2','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000003','fuzongjingli'     ,'a3','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000004','ciwuzongjian'     ,'a4','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000005','xushangzongjingli','a5','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000006','dajiangyouluguo'  ,'a6','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000007','test1'            ,'a7','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000008','test2'            ,'a8','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000009','test3'            ,'b1','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000010','test4'            ,'b2','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000011','test5'            ,'b3','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000012','test6'            ,'b4','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000013','test7'            ,'b5','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000014','test8'            ,'b6','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000015','test9'            ,'b7','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000016','test10'           ,'b8','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000017','test11'           ,'c1','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000018','test12'           ,'c2','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000019','test13'           ,'c3','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000020','test14'           ,'c4','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000021','test15'           ,'c5','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000022','test16'           ,'c6','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000023','test17'           ,'c7','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000024','test18'           ,'c8','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000025','test19'           ,'c9','670b14728ad9902aecba32e22fa4f6bd');
+insert into sysUserT(suId,suName,suNick,suPass) VALUES('10000000000000000000000000000026','test20'           ,'d1','670b14728ad9902aecba32e22fa4f6bd');
 
 select * from sysUserT;
 
@@ -105,10 +107,32 @@ comment on column sysPermissionT.spAddTime    is '权限添加时间'  ;
 
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000001','userListPage:get'   ,'用户列表页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000002','userListData:post'  ,'用户列表数据')  ;
-insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000003','userAddPage:get'    ,'用户添加页')    ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000003','userAddPage:get'    ,'用户添加页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000004','userAddProc:post'   ,'用户添加处理')  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000005','userEditPage:get'   ,'用户修改页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000006','userEditProc:post'  ,'用户修改处理')  ;
+
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000007','roleListPage:get'   ,'角色列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000008','roleListData:post'  ,'角色列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000009','roleAddPage:get'    ,'角色添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000010','roleAddProc:post'   ,'角色添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000011','roleEditPage:get'   ,'角色修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000012','roleEditProc:post'  ,'角色修改处理')  ;
+
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000013','permissionListPage:get'   ,'权限列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000014','permissionListData:post'  ,'权限列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000015','permissionAddPage:get'    ,'权限添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000016','permissionAddProc:post'   ,'权限添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000017','permissionEditPage:get'   ,'权限修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000018','permissionEditProc:post'  ,'权限修改处理')  ;
+
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000019','functionListPage:get'   ,'功能列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000020','functionListData:post'  ,'功能列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000021','functionAddPage:get'    ,'功能添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000022','functionAddProc:post'   ,'功能添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000023','functionEditPage:get'   ,'功能修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000024','functionEditProc:post'  ,'功能修改处理')  ;
+
 
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -126,11 +150,11 @@ comment on column sysRoleT.srAddTime    is '角色添加时间'  ;
 
 
 insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000001','超级管理员') ;
-insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000002','总经理')     ;
-insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000003','副总经理')   ;
-insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000004','财务总监')   ;
+insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000002','总经理'    ) ;
+insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000003','副总经理'  ) ;
+insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000004','财务总监'  ) ;
 insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000005','虚商总经理') ;
-insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000006','打酱油参观') ;
+insert into sysRoleT(srId,srName) VALUES('30000000000000000000000000000006','测试角色'  ) ;
 
 
 select * from sysRoleT;
@@ -179,11 +203,28 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000002') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000003') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000004') ;
-insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000002','20000000000000000000000000000001') ;
-insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000002','20000000000000000000000000000002') ;
-insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000003','20000000000000000000000000000001') ;
-insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000004','20000000000000000000000000000001') ;
-insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000005','20000000000000000000000000000001') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000005') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000006') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000007') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000008') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000009') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000010') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000011') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000012') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000013') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000014') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000015') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000016') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000017') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000018') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000019') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000020') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000021') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000022') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000023') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000024') ;
+
+
 
 
 select * from sysRolePermissionT;
@@ -217,5 +258,91 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000006','/userEditPage'                ,'20000000000000000000000000000005',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000007','/userEditProc'                ,'20000000000000000000000000000006',null,'cusperm') ;
 
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000008','/roleListPage'                ,'20000000000000000000000000000007',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000009','/roleListData'                ,'20000000000000000000000000000008',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000010','/roleAddPage'                 ,'20000000000000000000000000000009',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000011','/roleAddProc'                 ,'20000000000000000000000000000010',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000012','/roleEditPage'                ,'20000000000000000000000000000011',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000013','/roleEditProc'                ,'20000000000000000000000000000012',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000014','/permissionListPage'          ,'20000000000000000000000000000013',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000015','/permissionListData'          ,'20000000000000000000000000000014',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000016','/permissionAddPage'           ,'20000000000000000000000000000015',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000017','/permissionAddProc'           ,'20000000000000000000000000000016',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000018','/permissionEditPage'          ,'20000000000000000000000000000017',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000019','/permissionEditProc'          ,'20000000000000000000000000000018',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000014','/functionListPage'            ,'20000000000000000000000000000019',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000015','/functionListData'            ,'20000000000000000000000000000020',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000016','/functionAddPage'             ,'20000000000000000000000000000021',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000017','/functionAddProc'             ,'20000000000000000000000000000022',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000018','/functionEditPage'            ,'20000000000000000000000000000023',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000019','/functionEditProc'            ,'20000000000000000000000000000024',null,'cusperm') ;
+
 select * from sysFunctionT;
+/********+*********+*********+*********+*********+*********+*/
+create table sysMenuT(
+smId nvarchar2(64)  primary key,        --菜单编号
+smName nvarchar2(640)  not null,        --菜单显示名
+smHref nvarchar2(640)          ,        --菜单超链接
+smClick nvarchar2(64)          ,        --单击事件
+smClass nvarchar2(128)         ,        --样式
+smDataOptions nvarchar2(256)   ,        --easyui dataoptions
+parentSmId nvarchar2(64)                --父级菜单编号
+);
+
+comment on table  sysMenuT               is '系统菜单表'    ;
+comment on column sysMenuT.smId          is '菜单编号'      ;
+comment on column sysMenuT.smName        is '菜单名称'      ;
+comment on column sysMenuT.smHref        is '菜单链接'      ;
+comment on column sysMenuT.smClick       is '菜单单击'      ;
+comment on column sysMenuT.smClass       is '菜单样式'      ;
+comment on column sysMenuT.smDataOptions is '菜单扩展'      ;
+comment on column sysMenuT.parentSmId    is '菜单父级'      ;
+
+alter table sysMenuT add constraint fk_sysMenuT_parentSmId foreign key(parentSmId) references sysMenuT(smId);
+
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('1','主页','index',null,'easyui-linkbutton','plain:true',null) ;
+
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2','系统管理','javascript:void(0);',null,'easyui-linkbutton','menu:''#mm1''',null) ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_1','用户列表','javascript:void(0);','userListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_2','用户添加','javascript:void(0);','userAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_3','角色列表','javascript:void(0);','roleListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_4','角色添加','javascript:void(0);','roleAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_5','权限列表','javascript:void(0);','permissionListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_6','权限添加','javascript:void(0);','permissionAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_7','功能列表','javascript:void(0);','functionListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_8','功能添加','javascript:void(0);','functionAddPage();',null,null,'2') ;
+
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9','注销','logout',null,'easyui-linkbutton','plain:true',null) ;
+
+select * from sysMenuT;
+/********+*********+*********+*********+*********+*********+*/
+create table sysRoleMenuT(
+srId nvarchar2(64) ,                 --角色编号
+smId nvarchar2(64) ,                 --菜单编号
+srmAddTime timestamp default sysdate --添加时间
+);
+
+comment on table  sysRoleMenuT              is '角色菜单表'      ;
+comment on column sysRoleMenuT.srId         is '角色编号'        ;
+comment on column sysRoleMenuT.smId         is '菜单编号'        ;
+comment on column sysRoleMenuT.srmAddTime   is '添加时间'        ;
+
+alter table sysRoleMenuT add constraint fk_sysRoleMenuT_srId foreign key(srId) references sysRoleT(srId);
+alter table sysRoleMenuT add constraint fk_sysRoleMenuT_suId foreign key(smId) references sysMenuT(smId);
+
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','1');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_1');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_2');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_3');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_4');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_5');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_6');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_7');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_8');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9');
+
+select * from sysRoleMenuT;
 /********+*********+*********+*********+*********+*********+*/

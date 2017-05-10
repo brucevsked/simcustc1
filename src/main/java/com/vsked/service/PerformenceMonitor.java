@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class PerformenceMonitor {
-	
+	/*
 	private static final Logger log = Logger.getLogger(PerformenceMonitor.class);
 	
     @Pointcut("execution(* com.vsked..*.*(..))")    
@@ -34,4 +34,5 @@ public class PerformenceMonitor {
        log.debug("{"+pjp.getTarget().getClass()+"."+pjp.getSignature().getName()+"}:{"+TimeUnit.NANOSECONDS.toSeconds(end-begin)+"s"+"}");  
        return o;
    }
+   */
 }

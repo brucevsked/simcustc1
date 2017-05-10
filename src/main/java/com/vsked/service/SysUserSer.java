@@ -44,7 +44,7 @@ public class SysUserSer extends BaseService{
 				AuthenticationToken token=new UsernamePasswordToken(suName, suPass);
 				//使用shiro管理登录
 				SecurityUtils.getSubject().login(token);
-				return "index";
+				return "redirect:index";
 			}else{
 				getSession().setAttribute("backMsg", "用户名或密码为空！");
 				return "login";

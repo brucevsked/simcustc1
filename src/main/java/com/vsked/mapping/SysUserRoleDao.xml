@@ -3,6 +3,16 @@
 
 <mapper namespace="com.vsked.dao.SysUserRoleDao">
 
+    <select id="sysUserRoleList" resultType="java.util.Map">
+    
+    </select>
+    
+    <select id="isPermitted" resultType="java.util.Map">
+select * from sysUserRoleT where suId=#{suId} 
+and srId in(select srId from sysRolePermissionT 
+where spId=(select spId from sysPermissionT where spName=#{spName}))
+    </select>
+    
 	<select id="getSysUserRoleListBySuId" resultType="java.util.Map">
 		select * from 
 		sysUserRoleT a LEFT JOIN sysUserT b on a.suId=b.suId LEFT JOIN 
@@ -63,5 +73,16 @@
 		insert into sysUserRoleT(suId,srId,surAddTime) 
 		VALUES(#{suId,jdbcType=NVARCHAR},#{srId,jdbcType=NVARCHAR},sysdate)
 	</insert>
-
+	
+    <sql id="myWhere">
+    <where>
+		<if test="suName !=null ">
+		and suName like '%'||#{suName,jdbcType=NVARCHAR}||'%' 
+		</if>
+		<if test="suNick !=null ">
+		and suNick like '%'||#{suNick,jdbcType=NVARCHAR}||'%' 
+		</if>
+    </where>
+    </sql>
+    
 </mapper>

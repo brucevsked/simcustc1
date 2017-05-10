@@ -5,6 +5,8 @@ import java.util.Map;
 
 public interface SysUserRoleDao {
 	
+	public List<Map<String, Object>> sysUserRoleList(Map<String,Object> m);//获取用户角色列表
+	
 	public List<Map<String, Object>> getSysUserRoleListBySuId(String suId);//根据用户ID查询用户角色
 	
 	public List<Map<String, Object>> getSysUserRoleListBySrId(String srId);//根据角色ID查询用户角色
@@ -22,5 +24,7 @@ public interface SysUserRoleDao {
 	public int sysUserRoleDelBySrId(String srId);//根据角色ID删除
 	
 	public int sysUserRoleDelBySuId(String suId);//根据用户ID删除
+	
+	public List<Map<String,Object>> isPermitted(Map<String,Object> m); //是否有权限操作
 	
 }
