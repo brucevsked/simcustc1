@@ -17,7 +17,7 @@
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) 
 	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{smName,jdbcType=NVARCHAR},#{smHref,jdbcType=NVARCHAR},
-	  #{smClick,jdbcType=NVARCHAR},#{smClass,jdbcType=NVARCHAR},#{smDataOptions,jdbcType=NVARCHAR},#{parentSmId,jdbcType=NVARCHAR}) ;
+	  #{smClick,jdbcType=NVARCHAR},#{smClass,jdbcType=NVARCHAR},#{smDataOptions,jdbcType=NVARCHAR},#{parentSmId,jdbcType=NVARCHAR})
 	</insert>
 	
     <sql id="myWhere">

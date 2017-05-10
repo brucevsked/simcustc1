@@ -133,6 +133,13 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000023','functionEditPage:get'   ,'功能修改页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000024','functionEditProc:post'  ,'功能修改处理')  ;
 
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000025','menuListPage:get'   ,'菜单列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000026','menuListData:post'  ,'菜单列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000027','menuAddPage:get'    ,'菜单添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000028','menuAddProc:post'   ,'菜单添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000029','menuEditPage:get'   ,'菜单修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000030','menuEditProc:post'  ,'菜单修改处理')  ;
+
 
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -227,6 +234,12 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000022') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000023') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000024') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000025') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000026') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000027') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000028') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000029') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000030') ;
 
 
 
@@ -276,12 +289,20 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000018','/permissionEditPage'          ,'20000000000000000000000000000017',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000019','/permissionEditProc'          ,'20000000000000000000000000000018',null,'cusperm') ;
 
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000014','/functionListPage'            ,'20000000000000000000000000000019',null,'cusperm') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000015','/functionListData'            ,'20000000000000000000000000000020',null,'cusperm') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000016','/functionAddPage'             ,'20000000000000000000000000000021',null,'cusperm') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000017','/functionAddProc'             ,'20000000000000000000000000000022',null,'cusperm') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000018','/functionEditPage'            ,'20000000000000000000000000000023',null,'cusperm') ;
-insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000019','/functionEditProc'            ,'20000000000000000000000000000024',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000020','/functionListPage'            ,'20000000000000000000000000000019',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000021','/functionListData'            ,'20000000000000000000000000000020',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000022','/functionAddPage'             ,'20000000000000000000000000000021',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000023','/functionAddProc'             ,'20000000000000000000000000000022',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000024','/functionEditPage'            ,'20000000000000000000000000000023',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000025','/functionEditProc'            ,'20000000000000000000000000000024',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000026','/menuListPage'            ,'20000000000000000000000000000025',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000027','/menuListData'            ,'20000000000000000000000000000026',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000028','/menuAddPage'             ,'20000000000000000000000000000027',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000029','/menuAddProc'             ,'20000000000000000000000000000028',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000030','/menuEditPage'            ,'20000000000000000000000000000029',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000031','/menuEditProc'            ,'20000000000000000000000000000030',null,'cusperm') ;
+
 
 select * from sysFunctionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -310,17 +331,18 @@ alter table sysMenuT add constraint fk_sysMenuT_parentSmId foreign key(parentSmI
 
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('1','主页','index',null,'easyui-linkbutton','plain:true',null) ;
 
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2','系统管理','javascript:void(0);',null,'easyui-linkbutton','menu:''#mm1''',null) ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_1','用户列表','javascript:void(0);','userListPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_2','用户添加','javascript:void(0);','userAddPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_3','角色列表','javascript:void(0);','roleListPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_4','角色添加','javascript:void(0);','roleAddPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_5','权限列表','javascript:void(0);','permissionListPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_6','权限添加','javascript:void(0);','permissionAddPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_7','功能列表','javascript:void(0);','functionListPage();',null,null,'2') ;
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_8','功能添加','javascript:void(0);','functionAddPage();',null,null,'2') ;
-
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9','注销','logout',null,'easyui-linkbutton','plain:true',null) ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2'   ,'系统管理','javascript:void(0);',null,'easyui-linkbutton','menu:''#mm1''',null) ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_1' ,'用户列表','javascript:void(0);','userListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_2' ,'用户添加','javascript:void(0);','userAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_3' ,'角色列表','javascript:void(0);','roleListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_4' ,'角色添加','javascript:void(0);','roleAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_5' ,'权限列表','javascript:void(0);','permissionListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_6' ,'权限添加','javascript:void(0);','permissionAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_7' ,'功能列表','javascript:void(0);','functionListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_8' ,'功能添加','javascript:void(0);','functionAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_9' ,'菜单列表','javascript:void(0);','menuListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_10','菜单添加','javascript:void(0);','menuAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9'   ,'注销','logout',null,'easyui-linkbutton','plain:true',null) ;
 
 select * from sysMenuT;
 /********+*********+*********+*********+*********+*********+*/
