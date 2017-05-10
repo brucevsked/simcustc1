@@ -4,7 +4,7 @@
 <mapper namespace="com.vsked.dao.SysMenuDao">
 
 	<select id="getSysMenuList" resultType="java.util.Map">
-		select * from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
+		select a1.*,b1.smName smName1 from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
 		<include refid="myWhere" />
 	</select>
 	

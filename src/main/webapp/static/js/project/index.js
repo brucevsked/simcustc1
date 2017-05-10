@@ -88,3 +88,17 @@ function functionAddPage(){
 	loadPage('functionAddPage');
 }
 
+/**
+ * 载入菜单列表页
+ */
+function menuListPage(){
+	loadPage('menuListPage');
+}
+
+/**
+ * 载入菜单添加页
+ */
+function menuAddPage(){
+	loadPage('menuAddPage');
+}
+

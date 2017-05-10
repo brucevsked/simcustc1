@@ -35,6 +35,8 @@ request.setAttribute("basePath", basePath);
 <div onclick="permissionAddPage();">权限添加</div>
 <div onclick="functionListPage();">功能列表</div> 
 <div onclick="functionAddPage();">功能添加</div>
+<div onclick="menuListPage();">菜单列表</div> 
+<div onclick="menuAddPage();">菜单添加</div>
 </div>
          <!-- menu end -->
         </div>
