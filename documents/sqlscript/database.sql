@@ -171,6 +171,8 @@ comment on column sysUserRoleT.suId         is '用户编号'        ;
 comment on column sysUserRoleT.srId         is '角色编号'        ;
 comment on column sysUserRoleT.surAddTime   is '添加时间'        ;
 
+alter table sysUserRoleT add constraint pk_sysUserRoleT primary key(suId,srId);
+
 alter table sysUserRoleT add constraint fk_sysUserRoleT_suId foreign key(suId) references sysUserT(suId);
 alter table sysUserRoleT add constraint fk_sysUserRoleT_srId foreign key(srId) references sysRoleT(srId);
 
@@ -195,6 +197,8 @@ comment on table  sysRolePermissionT              is '角色权限表'      ;
 comment on column sysRolePermissionT.srId         is '角色编号'        ;
 comment on column sysRolePermissionT.spId         is '权限编号'        ;
 comment on column sysRolePermissionT.srpAddTime   is '添加时间'        ;
+
+alter table sysRolePermissionT add constraint pk_sysRolePermissionT primary key(srId,spId);
 
 alter table sysRolePermissionT add constraint fk_sysRolePermissionT_srId foreign key(srId) references sysRoleT(srId)      ;
 alter table sysRolePermissionT add constraint fk_sysRolePermissionT_spId foreign key(spId) references sysPermissionT(spId);
@@ -288,7 +292,8 @@ smHref nvarchar2(640)          ,        --菜单超链接
 smClick nvarchar2(64)          ,        --单击事件
 smClass nvarchar2(128)         ,        --样式
 smDataOptions nvarchar2(256)   ,        --easyui dataoptions
-parentSmId nvarchar2(64)                --父级菜单编号
+parentSmId nvarchar2(64)       ,        --父级菜单编号
+smAddTime timestamp default sysdate     --添加时间
 );
 
 comment on table  sysMenuT               is '系统菜单表'    ;
@@ -299,6 +304,7 @@ comment on column sysMenuT.smClick       is '菜单单击'      ;
 comment on column sysMenuT.smClass       is '菜单样式'      ;
 comment on column sysMenuT.smDataOptions is '菜单扩展'      ;
 comment on column sysMenuT.parentSmId    is '菜单父级'      ;
+comment on column sysMenuT.smAddTime     is '添加时间'      ;
 
 alter table sysMenuT add constraint fk_sysMenuT_parentSmId foreign key(parentSmId) references sysMenuT(smId);
 
@@ -328,6 +334,8 @@ comment on table  sysRoleMenuT              is '角色菜单表'      ;
 comment on column sysRoleMenuT.srId         is '角色编号'        ;
 comment on column sysRoleMenuT.smId         is '菜单编号'        ;
 comment on column sysRoleMenuT.srmAddTime   is '添加时间'        ;
+
+alter table sysRoleMenuT add constraint pk_sysRoleMenuT primary key(srId,smId);
 
 alter table sysRoleMenuT add constraint fk_sysRoleMenuT_srId foreign key(srId) references sysRoleT(srId);
 alter table sysRoleMenuT add constraint fk_sysRoleMenuT_suId foreign key(smId) references sysMenuT(smId);
