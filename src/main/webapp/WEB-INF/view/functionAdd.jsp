@@ -23,7 +23,7 @@ request.setAttribute("basePath", basePath);
      <input class="easyui-textbox" type="text" name="sfValue" id="sfValue" label="功能地址:" data-options="required:true,missingMessage:'请输入功能地址'" style="width:30%" />
 </div>
 <div style="margin-bottom:20px;margin-left:2%">
-     <input type="text" name="spId" id="spId" label="功能中文名:"  />
+     <input type="text" name="spId" id="spId" label="功能中文名:" style="width:30%"  />
 </div>
 <div style="margin-bottom:20px;margin-left:2%">
 <label for="sfType1">拦截类型:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
