@@ -9,30 +9,51 @@ request.setAttribute("basePath", basePath);
   <head>
     <base href="${basePath }">
     
-    <title>用户角色列表</title>
+    <title>用户角色分配</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   
   <body>
-  
-  <div id="searchPanel" class="easyui-panel">
-  <input id="suName" name="suName" class="easyui-textbox" label="用户名:" style="width: 18%">
-  <button class="easyui-linkbutton" type="button" onclick="query()">&nbsp;查 &nbsp;询&nbsp;</button> <br>
-  <button class="easyui-linkbutton" type="button" onclick="edit()">&nbsp;编&nbsp;辑&nbsp;</button>
+  <div id="userRoleDiv" title="为用户${data.SUNICK }分配角色" class="easyui-panel" style="width:100%;height:100%;">
+<form id="fm" method="post" action="${basePath }userRoleProc">
+<input type="hidden" id="suId" name="suId" value="${data.SUID }">
+<table style="width:100%;height:85%;" border="0.5" cellspacing="0" bordercolor="#95B8E7">
+<tr><td align="center">未拥有角色</td><td align="center">操作选项</td><td align="center">已拥有角色</td></tr>
+<tr><td>
+    <select multiple="multiple" id="noSysRoleList" name="noSysRoleList" size="15" style="width:100%;">
+    </select>
+</td>
+<td width="50px">
+<div style="margin-bottom:20px;" align="center">
+        <button type="button" class="easyui-linkbutton" onclick="sourceToTargetSe('noSysRoleList','srIds',true);" >&nbsp;&nbsp;&gt;&nbsp;&nbsp;</button>
+</div>
+<div style="margin-bottom:20px;" align="center">
+        <button type="button" class="easyui-linkbutton" onclick="sourceToTargetSe('srIds','noSysRoleList',true);" >&nbsp;&nbsp;&lt;&nbsp;&nbsp;</button>
+</div>
+<div style="margin-bottom:20px;" align="center">
+        <button type="button" class="easyui-linkbutton" onclick="sourceToTargetSe('noSysRoleList','srIds',false);" >&nbsp;&gt;&nbsp;&gt;&nbsp;</button>
+</div>
+<div style="margin-bottom:20px;" align="center">
+        <button type="button" class="easyui-linkbutton" onclick="sourceToTargetSe('srIds','noSysRoleList',false);" >&nbsp;&lt;&nbsp;&lt;&nbsp;</button>
+</div>
+</td>
+<td>
+    <select multiple="multiple" id="srIds" name="srIds" size="15" style="width:98%;" >
+    </select>
+</td>
+</tr>
+<tr>
+<td colspan="3" align="center">
+<br>
+    <button type="button" class="easyui-linkbutton" onclick="submitForm();">保存</button> 
+    <button type="reset" class="easyui-linkbutton">重置</button>
+ </td>  
+</table>
+</form>
   </div>
   
-    <table id="mytb" toolbar="#searchPanel">
-    <thead>
-      <tr>
-        <th field="SUNAME" >用户名</th>
-        <th field="SUMOBILE" >手机号</th>
-        <th field="SUNICK" >别名</th>
-        <th field="SUQQ" > qq号</th>
-      </tr>
-    </thead>
-    </table>
-    
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/selectTool.js"></script>
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/userRoleList.js"></script>
   
   </body>

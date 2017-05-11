@@ -52,3 +52,15 @@ function edit(){
 		toastr.info('请选择行', '提示');
 	}
 }
+
+/**
+ * 转到为用户绑定角色页面
+ */
+function userRole(){
+	var row = $('#mytb').datagrid('getSelected');
+	if (row){
+		loadPage('userRoleListPage?suId='+row.SUID);
+	}else{
+		toastr.info('请选择行', '提示');
+	}
+}
