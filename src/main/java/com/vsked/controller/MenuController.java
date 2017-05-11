@@ -43,4 +43,15 @@ public class MenuController {
 	public String menuAddProc(HttpServletRequest req){
 		return sysMenuSer.menuAddProc(req);
 	}
+	
+	@GetMapping("menuEditPage")
+	public String menuEditPage(HttpServletRequest req){
+		return sysMenuSer.menuEditPage(req);
+	}
+	
+	@PostMapping("menuEditProc")
+	@ResponseBody
+	public String menuEditProc(HttpServletRequest req){
+		return sysMenuSer.menuEditProc(req);
+	}
 }

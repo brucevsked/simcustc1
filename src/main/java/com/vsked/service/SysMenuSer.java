@@ -91,5 +91,37 @@ public class SysMenuSer extends BaseService {
 		}
 		return result;
 	}
+	
+	public String menuEditProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=sysMenuDao.sysMenuEdit(data);
+			if(effectLine<=0){
+				result="菜单修改失败。";
+			}else{
+				result="菜单:"+data.get("smName")+"修改成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="菜单修改出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String menuEditPage(HttpServletRequest req){
+		String result="menuListPage";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("smId")){
+			Map<String, Object> data=sysMenuDao.getSysMenuBySmId((String) parMap.get("smId"));
+			getSession().setAttribute("data", data);
+			result="menuEdit";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return result;
+	}
 
 }

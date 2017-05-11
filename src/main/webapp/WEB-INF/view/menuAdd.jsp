@@ -23,6 +23,9 @@ request.setAttribute("basePath", basePath);
      <input class="easyui-textbox" type="text" name="smName" id="smName" label="菜单名称:" data-options="required:true,missingMessage:'请输入菜单名称'" style="width:30%" />
 </div>
 <div style="margin-bottom:20px;margin-left:2%">
+     <input type="text" name="parentSmId" id="parentSmId" label="上级菜单:"  style="width:30%" />
+</div>
+<div style="margin-bottom:20px;margin-left:2%">
      <input class="easyui-textbox" type="text" name="smHref" id="smHref" label="链接:"  style="width:30%" />
 </div>
 <div style="margin-bottom:20px;margin-left:2%">
@@ -33,9 +36,6 @@ request.setAttribute("basePath", basePath);
 </div>
 <div style="margin-bottom:20px;margin-left:2%">
      <input class="easyui-textbox" type="text" name="smDataOptions" id="smDataOptions" label="扩展:"  style="width:30%" />
-</div>
-<div style="margin-bottom:20px;margin-left:2%">
-     <input type="text" name="parentSmId" id="parentSmId" label="上级菜单:"  style="width:30%" />
 </div>
 <div style="margin-bottom:20px;margin-left:15%">
     <button type="button" class="easyui-linkbutton" onclick="submitForm();">增加</button> 

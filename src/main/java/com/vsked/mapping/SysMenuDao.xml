@@ -8,6 +8,10 @@
 		<include refid="myWhere" />
 	</select>
 	
+	<select id="getSysMenuBySmId" resultType="java.util.Map">
+		select * from sysMenuT where smId=#{smId,jdbcType=NVARCHAR}
+	</select>
+	
 	<select id="getSysMenuCount" resultType="java.lang.Integer">
 		select count(0) from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
 		<include refid="myWhere" />
@@ -19,6 +23,12 @@
 	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{smName,jdbcType=NVARCHAR},#{smHref,jdbcType=NVARCHAR},
 	  #{smClick,jdbcType=NVARCHAR},#{smClass,jdbcType=NVARCHAR},#{smDataOptions,jdbcType=NVARCHAR},#{parentSmId,jdbcType=NVARCHAR})
 	</insert>
+	
+	<update id="sysMenuEdit">
+	  update sysMenuT set smName=#{smName,jdbcType=NVARCHAR},smHref=#{smHref,jdbcType=NVARCHAR},
+	  smClick=#{smClick,jdbcType=NVARCHAR},smClass=#{smClass,jdbcType=NVARCHAR},smDataOptions=#{smDataOptions,jdbcType=NVARCHAR},
+	  parentSmId=#{parentSmId,jdbcType=NVARCHAR} where smId=#{smId,jdbcType=NVARCHAR} 
+	</update>
 	
     <sql id="myWhere">
     <where>

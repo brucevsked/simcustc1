@@ -40,7 +40,14 @@ public class SysMenuDaoTest extends TestMyBatis{
 		log.debug(dataList.size());
 	}
 	
-	@Test
+//	@Test
+	public void getSysMenuBySmId(){
+		String smId="DB5B0B8AA0DD408BB70E7C6DB15B5F30";
+		Map<String, Object> data=sysMenuDao.getSysMenuBySmId(smId);
+		log.debug(data);
+	}
+	
+//	@Test
 	public void sysMenuAdd(){
 		Map<String, Object> m=new HashMap<String, Object>();
 		m.put("smName", "testmenu");
@@ -51,7 +58,20 @@ public class SysMenuDaoTest extends TestMyBatis{
 		m.put("parentSmId", "");
 		int effectLine=sysMenuDao.sysMenuAdd(m);
 		log.debug(effectLine);
-		
+	}
+	
+//	@Test
+	public void sysMenuEdit(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("smId", "DB5B0B8AA0DD408BB70E7C6DB15B5F30");
+		m.put("smName", "testmenuedit");
+		m.put("smHref", "");
+		m.put("smClick", "");
+		m.put("smClass", "");
+		m.put("smDataOptions", "");
+		m.put("parentSmId", "");
+		int effectLine=sysMenuDao.sysMenuEdit(m);
+		log.debug(effectLine);
 	}
 
 }
