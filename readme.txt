@@ -1,4 +1,12 @@
 
+this is easyui + springmvc + mybatis + shiro project
+
+oracle12c database
+
+implements RBAC model and add menu
+
+use easyui front
+
 
 http://localhost:8080/simcustc1
 
