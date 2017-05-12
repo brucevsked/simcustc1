@@ -36,7 +36,15 @@ function initHasSysRoleList(){
 
 function submitForm(){
 	var suId=$('#suId').val();
-	var hasSysRoleList=getSelectValues('srIds');
-	//TODO goon fixed here
-	console.log(hasSysRoleList)
+	var srIds=getSelectValues('srIds');
+	
+	var myBasePath=$('#fm').attr("action");
+	$.post(myBasePath,
+			{
+		suId: suId,
+		srIds:srIds
+		    },function (dt){
+		    	toastr.info(dt, '添加结果');
+		    	}
+		    );
 }

@@ -32,5 +32,11 @@ public class UserRoleController {
 	public String noSysRoleList(HttpServletRequest req){
 		return sysUserRoleSer.noSysRoleList(req);
 	}
+	
+	@PostMapping("userRoleProc")
+	@ResponseBody
+	public String userRoleProc(HttpServletRequest req){
+		return sysUserRoleSer.userRoleProc(req);
+	}
 
 }

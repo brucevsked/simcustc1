@@ -1,5 +1,6 @@
 package com.vsked.service;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -7,14 +8,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
-import com.github.pagehelper.PageHelper;
 import com.vsked.common.BaseJson;
-import com.vsked.common.Page;
 import com.vsked.dao.SysUserDao;
 import com.vsked.dao.SysUserRoleDao;
 
@@ -96,5 +95,37 @@ public class SysUserRoleSer extends BaseService {
 			log.error(e.getMessage());
 		}
 		return flag;
+	}
+	
+	public String userRoleProc(HttpServletRequest req){
+		String result="";
+		int resultCount=0;
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("suId")){
+				String suId=(String) parMap.get("suId");
+			    sysUserRoleDao.sysUserRoleDelBySuId(suId); //clean suData
+			    if(parMap.containsKey("srIds")){
+			    	String srIds=(String) parMap.get("srIds");
+			    	String[] srIdArray=srIds.split(",");
+			    	for(String srId:srIdArray){
+			    		Map<String, Object> m=new HashMap<String, Object>();
+			    		m.put("suId", suId);
+			    		m.put("srId", srId);
+			    		int effectLine=sysUserRoleDao.sysUserRoleAdd(m);
+			    		resultCount+=effectLine;
+			    	}
+			    }
+			    result="总计绑定角色"+resultCount+"个";
+			}else{
+				result="参数不完整请联系管理员.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="角色绑定出现异常,请联系管理员.";
+			//手动回滚事务
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		}
+		return result;
 	}
 }
