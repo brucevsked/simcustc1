@@ -1,13 +1,20 @@
 package com.vsked.service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import com.vsked.common.BaseJson;
+import com.vsked.dao.SysPermissionDao;
 import com.vsked.dao.SysRolePermissionDao;
 
 @Service
@@ -19,59 +26,94 @@ public class SysRolePermissionSer extends BaseService {
 	@Autowired
 	SysRolePermissionDao sysRolePermissionDao;
 	
+	@Autowired
+	SysPermissionDao sysPermissionDao;
+	
 	public List<Map<String, Object>> getSysRolePermissionBySrId(String srId) {
-		return sysRolePermissionDao.getSysRolePermissionBySrId(srId);
-	}
-
-	/**
-	 * 存入角色ID，跳转权限分配页面
-	 * */
-	public String sysRolePermissionBySrId(String srId) {
-		Session session = getSession();
-		session.setAttribute("permissionSrId", srId);
-		return "system/sysPermissionAssign";
-	}
-	
-	
-	/**
-	 * 
-	 * 添加权限给角色
-	 * */
-	public String sysPermissionAssign(HttpServletRequest req) {
-		boolean flag = false;
-		try {
-			Map<String, Object> myData = getMaps(req);
-			String srId = (String) myData.get("srId");
-			String object = (String) myData.get("hasPermissionIds");
-			String[] spId = object.split(",");
-			List<Map<String, Object>> rolePermission = sysRolePermissionDao.getSysRolePermissionBySrId(srId);
-			if (rolePermission.size() > 0) {
-				int row = sysRolePermissionDao.sysRolePermissionDelBySrId(srId);
-				if (row > 0) {
-					for (int i = 0; i < spId.length; i++) {
-						String sid = spId[i];
-						myData.put("spId", sid);
-						myData.put("srId", srId);
-						int row2 = sysRolePermissionDao.sysRolePermissionAdd(myData);
-						if (row2 > 0) {
-							flag = true;
-						}
-					}
-				}
-			} else {
-				for (int i = 0; i < spId.length; i++) {
-					String sid = spId[i];
-					myData.put("spId", sid);
-					myData.put("srId", srId);
-					int row2 = sysRolePermissionDao.sysRolePermissionAdd(myData);
-					if (row2 > 0) {
-						flag = true;
-					}
-				}
-			}
-		} catch (Exception e) {
+		List<Map<String, Object>> dataList=new LinkedList<Map<String,Object>>();
+		try{
+			dataList=sysRolePermissionDao.getSysRolePermissionBySrId(srId);
+		}catch(Exception e){
 			log.error(e.getMessage());
 		}
-		return "system/sysRoleList";
+		return dataList;
 	}
+	
+	public String rolePermissionListPage(HttpServletRequest req){
+		String resultPage="rolePermissionList";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("spId")){
+				Map<String, Object> data=sysPermissionDao.getSysPermissionBySpId((String) parMap.get("spId"));
+				getSession().setAttribute("data", data);
+				
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return resultPage;
+	}
+	
+	public String hasSysRoleList(HttpServletRequest req){
+		StringBuilder sb=new StringBuilder();
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("spId")){
+				List<Map<String, Object>> dataList=sysRolePermissionDao.getHasSysRoleList((String) parMap.get("spId"));
+				String dataListJson=BaseJson.listToJson(dataList);
+				sb.append(dataListJson);
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return sb.toString();
+	}
+	
+	public String noSysRoleList(HttpServletRequest req){
+		StringBuilder sb=new StringBuilder();
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("spId")){
+				List<Map<String, Object>> dataList=sysRolePermissionDao.getNoSysRoleList((String) parMap.get("spId"));
+				String dataListJson=BaseJson.listToJson(dataList);
+				sb.append(dataListJson);
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return sb.toString();
+	}
+	
+	public String rolePermissionProc(HttpServletRequest req){
+		String result="";
+		int resultCount=0;
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("spId")){
+				String spId=(String) parMap.get("spId");
+				sysRolePermissionDao.sysRolePermissionDelBySpId(spId); //clean suData
+			    if(parMap.containsKey("srIds")){
+			    	String srIds=(String) parMap.get("srIds");
+			    	String[] srIdArray=srIds.split(",");
+			    	for(String srId:srIdArray){
+			    		Map<String, Object> m=new HashMap<String, Object>();
+			    		m.put("spId", spId);
+			    		m.put("srId", srId);
+			    		int effectLine=sysRolePermissionDao.sysRolePermissionAdd(m);
+			    		resultCount+=effectLine;
+			    	}
+			    }
+			    result="总计绑定角色"+resultCount+"个";
+			}else{
+				result="参数不完整请联系管理员.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="角色绑定出现异常,请联系管理员.";
+			//手动回滚事务
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		}
+		return result;
+	}
+
 }

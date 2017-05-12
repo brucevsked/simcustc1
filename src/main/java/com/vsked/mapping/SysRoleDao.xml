@@ -33,7 +33,7 @@
     
 	<sql id="myWhere">
 		<where>
-			<if test="srName !=null ">
+			<if test="srName !=null and srName != '' ">
 				and srName like  '%'||#{srName,jdbcType=NVARCHAR}||'%' 
 			</if>
 		</where>

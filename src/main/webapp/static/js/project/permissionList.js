@@ -47,3 +47,12 @@ function edit(){
 		toastr.info('请选择行', '提示');
 	}
 }
+
+function rolePermission(){
+	var row = $('#mytb').datagrid('getSelected');
+	if (row){
+		loadPage('rolePermissionListPage?spId='+row.SPID);
+	}else{
+		toastr.info('请选择行', '提示');
+	}
+}

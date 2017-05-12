@@ -34,10 +34,10 @@
     
 	<sql id="myWhere">
 		<where>
-			<if test="spName !=null ">
+			<if test="spName !=null and spName != '' ">
 				and spName like '%'||#{spName,jdbcType=NVARCHAR}||'%' 
 			</if>
-			<if test="spNick !=null ">
+			<if test="spNick !=null and spNick != '' ">
 				and spNick like '%'||#{spNick,jdbcType=NVARCHAR}||'%' 
 			</if>
 		</where>

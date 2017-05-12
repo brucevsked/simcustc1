@@ -140,6 +140,15 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000029','menuEditPage:get'   ,'菜单修改页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000030','menuEditProc:post'  ,'菜单修改处理')  ;
 
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000031','userRoleListPage:get'   ,'用户角色绑定页'              )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000032','hasSysRoleList:post'    ,'用户角色绑定时已拥有角色列表')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000033','noSysRoleList:post'     ,'用户角色绑定时未拥有角色列表')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000034','userRoleProc:post'      ,'为用户绑定角色处理'          )  ;
+
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000035','rolePermissionListPage:get'    ,'权限角色绑定页'              )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000036','hasSysRoleListPermission:post' ,'角色权限绑定时已拥有角色列表')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000037','noSysRoleListPermission:post'  ,'角色权限绑定时未拥有角色列表')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000038','rolePermissionProc:post'       ,'为权限绑定角色处理'          )  ;
 
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -240,6 +249,14 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000028') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000029') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000030') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000031') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000032') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000033') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000034') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000035') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000036') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000037') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000038') ;
 
 
 
@@ -302,6 +319,16 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000029','/menuAddProc'             ,'20000000000000000000000000000028',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000030','/menuEditPage'            ,'20000000000000000000000000000029',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000031','/menuEditProc'            ,'20000000000000000000000000000030',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000032','/userRoleListPage'        ,'20000000000000000000000000000031',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000033','/hasSysRoleList'          ,'20000000000000000000000000000032',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000034','/noSysRoleList'           ,'20000000000000000000000000000033',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000035','/userRoleProc'            ,'20000000000000000000000000000034',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000036','/rolePermissionListPage'    ,'20000000000000000000000000000035',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000037','/hasSysRoleListPermission'  ,'20000000000000000000000000000036',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000038','/noSysRoleListPermission'   ,'20000000000000000000000000000037',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000039','/rolePermissionProc'        ,'20000000000000000000000000000038',null,'cusperm') ;
 
 
 select * from sysFunctionT;

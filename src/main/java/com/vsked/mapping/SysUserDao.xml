@@ -41,10 +41,10 @@
     
     <sql id="myWhere">
     <where>
-		<if test="suName !=null ">
+		<if test="suName !=null and suName != '' ">
 		and suName like '%'||#{suName,jdbcType=NVARCHAR}||'%' 
 		</if>
-		<if test="suNick !=null ">
+		<if test="suNick !=null and suNick != '' ">
 		and suNick like '%'||#{suNick,jdbcType=NVARCHAR}||'%' 
 		</if>
     </where>

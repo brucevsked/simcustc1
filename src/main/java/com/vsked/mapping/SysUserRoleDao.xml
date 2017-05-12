@@ -4,7 +4,10 @@
 <mapper namespace="com.vsked.dao.SysUserRoleDao">
 
     <select id="sysUserRoleList" resultType="java.util.Map">
-    
+select * from sysUserRoleT a 
+left join sysUserT b on a.suId=b.suId 
+left join sysRoleT c on a.srId=c.srId  
+<include refid="myWhere" />
     </select>
     
     <select id="isPermitted" resultType="java.util.Map">
@@ -76,11 +79,14 @@ where spId=(select spId from sysPermissionT where spName=#{spName}))
 	
     <sql id="myWhere">
     <where>
-		<if test="suName !=null ">
+		<if test="suName !=null and suName != '' ">
 		and suName like '%'||#{suName,jdbcType=NVARCHAR}||'%' 
 		</if>
-		<if test="suNick !=null ">
+		<if test="suNick !=null and suNick != '' ">
 		and suNick like '%'||#{suNick,jdbcType=NVARCHAR}||'%' 
+		</if>
+		<if test="srName !=null and srName != '' ">
+		and srName like '%'||#{srName,jdbcType=NVARCHAR}||'%' 
 		</if>
     </where>
     </sql>
