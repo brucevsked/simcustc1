@@ -73,8 +73,8 @@ where spId=(select spId from sysPermissionT where spName=#{spName}))
 	</delete>
 
 	<insert id="sysUserRoleAdd">
-		insert into sysUserRoleT(suId,srId,surAddTime) 
-		VALUES(#{suId,jdbcType=NVARCHAR},#{srId,jdbcType=NVARCHAR},sysdate)
+		insert into sysUserRoleT(suId,srId) 
+		VALUES(#{suId,jdbcType=NVARCHAR},#{srId,jdbcType=NVARCHAR})
 	</insert>
 	
     <sql id="myWhere">

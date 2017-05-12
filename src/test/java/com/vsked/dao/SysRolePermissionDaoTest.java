@@ -49,7 +49,7 @@ public class SysRolePermissionDaoTest extends TestMyBatis{
 		log.debug(dataList.size());
 	}
 	
-	@Test
+//	@Test
 	public void getNoSysRoleList(){
 		String spId="20000000000000000000000000000001";
 		List<Map<String, Object>> dataList=sysRolePermissionDao.getNoSysRoleList(spId);

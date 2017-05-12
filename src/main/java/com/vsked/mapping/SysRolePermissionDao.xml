@@ -42,7 +42,7 @@
 	</delete>
 	
 	<insert id="sysRolePermissionAdd">
-		insert into sysRolePermissiont(srId,spId,srpAddTime) 
-		VALUES(#{srId,jdbcType=NVARCHAR},#{spId,jdbcType=NVARCHAR},sysdate)
+		insert into sysRolePermissiont(srId,spId) 
+		VALUES(#{srId,jdbcType=NVARCHAR},#{spId,jdbcType=NVARCHAR})
 	</insert>
 </mapper>
