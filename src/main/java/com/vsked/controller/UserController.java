@@ -109,4 +109,16 @@ public class UserController {
         sysUserSer.addMessage(attr, "您已安全退出");
         return "login";
     }
+    
+	@GetMapping("userPassPage")
+	public String userPassPage(HttpServletRequest req){
+		return sysUserSer.userPassPage(req);
+	}
+	
+	@PostMapping("userPassProc")
+	@ResponseBody
+	public String userPassProc(HttpServletRequest req){
+		return sysUserSer.userPassProc(req);
+	}
+    
 }

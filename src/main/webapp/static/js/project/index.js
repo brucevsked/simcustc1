@@ -55,7 +55,7 @@ function userMenu(){
 		var menuList='';
 		level1List=getMenuLevel1(dt);
 		$.each(level1List,function (index,el){			
-			$('#menuDiv').append('<a'+getMenuHref(el)+getMenuClass(el)+getDataOptions(el,dt)+'>'+el.SMNAME+'</a>');
+			$('#menuDiv').append('<a'+getMenuHref(el)+getMenuClass(el)+getMenuClick(el)+getDataOptions(el,dt)+'>'+el.SMNAME+'</a>');
 		});
 	    $.parser.parse();//重新加载样式
 		    	}
@@ -102,7 +102,13 @@ function getSubMenus(curMenu,dt){
  * @returns
  */
 function getMenuHref(dt){
-	return dt.SMHREF==undefined?' href="javascript:void(0);" ':' href="'+basePath+dt.SMHREF+'" ';
+	if(dt.SMHREF==undefined){
+		return ' href="javascript:void(0);" ';
+	}else if(dt.SMHREF.indexOf('void(0)')>=0){
+		return ' href="'+dt.SMHREF+'" '
+	}else{
+		return ' href="'+basePath+dt.SMHREF+'" ';
+	}
 }
 
 /**
@@ -230,5 +236,12 @@ function menuListPage(){
  */
 function menuAddPage(){
 	loadPage('menuAddPage');
+}
+
+/**
+ * 修改我的密码外部按钮
+ */
+function myPassPage(){
+	loadPage('userPassPage?suId=');
 }
 

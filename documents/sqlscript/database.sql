@@ -150,6 +150,9 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000037','noSysRoleListPermission:post'  ,'角色权限绑定时未拥有角色列表')  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000038','rolePermissionProc:post'       ,'为权限绑定角色处理'          )  ;
 
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000039','userPassPage:get'    ,'密码修改页'            )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000040','userPassProc:post'   ,'密码修改处理'          )  ;
+
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
 
@@ -257,6 +260,9 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000036') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000037') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000038') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000039') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000040') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000041') ;
 
 
 
@@ -330,6 +336,9 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000038','/noSysRoleListPermission'   ,'20000000000000000000000000000037',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000039','/rolePermissionProc'        ,'20000000000000000000000000000038',null,'cusperm') ;
 
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000040','/userPassPage'    ,'20000000000000000000000000000039',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000041','/userPassProc'    ,'20000000000000000000000000000040',null,'cusperm') ;
+
 
 select * from sysFunctionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -370,6 +379,7 @@ insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_9' ,'菜单列表','javascript:void(0);','menuListPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_10','菜单添加','javascript:void(0);','menuAddPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9'   ,'注销','logout',null,'easyui-linkbutton','plain:true',null) ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('100' ,'修改密码','javascript:void(0);','myPassPage()','easyui-linkbutton','plain:true',null) ;
 
 select * from sysMenuT;
 /********+*********+*********+*********+*********+*********+*/
@@ -402,6 +412,7 @@ insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_9');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_10');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','100');
 
 select * from sysRoleMenuT;
 /********+*********+*********+*********+*********+*********+*/

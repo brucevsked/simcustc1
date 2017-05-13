@@ -17,8 +17,8 @@ request.setAttribute("basePath", basePath);
   
   <body>
 	<div class="easyui-panel" title="用户密码修改">
-		<form id="fm" method="post" action="${basePath }userEditProc">
-		<input type="hidden" name="suId" id="suId" value="${data.SUID }" />
+		<form id="fm" method="post" action="${basePath }userPassProc">
+		<input type="hidden" name="suId" id="suId" value="${data }" />
 		<br/>
 <div style="margin-bottom:20px;margin-left:2%">
 <input class="easyui-textbox" type="text" name="suPass" id="suPass" label="密码:" data-options="required:true,missingMessage:'请输入用户密码'" style="width:30%"/>
@@ -33,7 +33,7 @@ request.setAttribute("basePath", basePath);
 		</form>
 	</div>
 	
-  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/userEdit.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/userPass.js"></script>
   
   </body>
 </html>

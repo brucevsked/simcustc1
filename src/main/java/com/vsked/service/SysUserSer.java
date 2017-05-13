@@ -2,7 +2,9 @@ package com.vsked.service;
 
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -12,6 +14,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.github.pagehelper.PageHelper;
 import com.vsked.common.BaseJson;
 import com.vsked.common.Page;
@@ -179,6 +182,54 @@ public class SysUserSer extends BaseService{
 			}
 		}catch(Exception e){
 			log.error(e.getMessage());
+		}
+		return result;
+	}
+	
+	public String userPassPage(HttpServletRequest req){
+		String result="userPass";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("suId")){
+			getSession().setAttribute("data", parMap.get("suId"));
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return result;
+	}
+	
+	/**
+	 * 密码修改(当suId为空时修改当前用户密码有suId参数时修改用户suId的密码)
+	 * @param req
+	 * @return
+	 */
+	public String userPassProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			if(data.containsKey("suPass")){
+				String suPass=(String) data.get("suPass");
+				suPass=DigestUtils.md5Hex(suPass.getBytes());
+				data.put("suPass", suPass);
+			}
+			if(data.containsKey("suId")){
+				String suId=(String) data.get("suId");
+				if("".equals(suId)){
+					suId=(String) getCurrentUser().get("SUID");
+					data.put("suId", suId);
+				}
+			}
+			
+			int effectLine=sysUserDao.sysUserPassChange(data);
+			if(effectLine<=0){
+				result="密码修改失败。";
+			}else{
+				result="密码修改成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="密码修改出现异常,请联系管理员.";
 		}
 		return result;
 	}

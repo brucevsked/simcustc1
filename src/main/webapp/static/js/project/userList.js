@@ -64,3 +64,15 @@ function userRole(){
 		toastr.info('请选择行', '提示');
 	}
 }
+
+/**
+ * 修改选中用户密码
+ */
+function userPass(){
+	var row = $('#mytb').datagrid('getSelected');
+	if (row){
+		loadPage('userPassPage?suId='+row.SUID);
+	}else{
+		toastr.info('请选择行', '提示');
+	}
+}
