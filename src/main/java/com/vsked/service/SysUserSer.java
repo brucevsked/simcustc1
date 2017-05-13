@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -102,43 +101,6 @@ public class SysUserSer extends BaseService{
 	}
 
 	
-	/**
-	 * 跳转到编辑用户页
-	 * @param suId
-	 * @return
-	 */
-	public String sysUserEditPage(String suId){
-		try{
-			Map<String, Object> sysUser=getSysUserBySuId(suId);
-			Session session=getSession();
-			session.setAttribute("sysUser", sysUser);
-		}catch(Exception e){
-			log.error(e.getMessage());
-		}
-		return "system/sysUserEdit";
-	}
-	
-	/**
-	 * 跳转到密码修改页
-	 * @param suId
-	 * @return
-	 */
-	public String sysUserChangePassPage(String suId){
-		try{
-			Map<String, Object> sysUser=getSysUserBySuId(suId);
-			Session session=getSession();
-			session.setAttribute("sysUser", sysUser);
-		}catch(Exception e){
-			log.error(e.getMessage());
-		}
-		return "system/sysUserChangePass";
-	}
-	
-	public void getParTest(HttpServletRequest req){
-		Map<String, Object> m=getMaps(req);
-		log.debug(m);
-	}
-	
 	public String sysUserList(HttpServletRequest req){
 		StringBuilder sb=new StringBuilder();
 		try{
@@ -165,11 +127,17 @@ public class SysUserSer extends BaseService{
 		return sb.toString();
 	}
 	
-	
 	public String userAddProc(HttpServletRequest req){
 		String result="";
 		try{
 			Map<String, Object> data=getMaps(req);
+			
+			if(data.containsKey("suPass")){
+				String suPass=(String) data.get("suPass");
+				suPass=DigestUtils.md5Hex(suPass.getBytes());
+				data.put("suPass", suPass);
+			}
+			
 			int effectLine=sysUserDao.sysUserAdd(data);
 			if(effectLine<=0){
 				result="用户添加失败。";
