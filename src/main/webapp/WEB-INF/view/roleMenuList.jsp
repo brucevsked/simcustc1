@@ -9,15 +9,15 @@ request.setAttribute("basePath", basePath);
   <head>
     <base href="${basePath }">
     
-    <title>角色权限分配</title>
+    <title>角色菜单分配</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   
   <body>
-  <div id="userRoleDiv" title="为权限[${data.SPNICK }]分配角色" class="easyui-panel" style="width:100%;height:100%;">
-<form id="fm" method="post" action="${basePath }rolePermissionProc">
-<input type="hidden" id="spId" name="spId" value="${data.SPID }">
+  <div id="userRoleDiv" title="为菜单[${data.SMNAME }]分配角色" class="easyui-panel" style="width:100%;height:100%;">
+<form id="fm" method="post" action="${basePath }roleMenuProc">
+<input type="hidden" id="smId" name="smId" value="${data.SMID }">
 <table style="width:100%;height:85%;" border="0.5" cellspacing="0" bordercolor="#95B8E7">
 <tr><td align="center">未拥有角色</td><td align="center">操作选项</td><td align="center">已拥有角色</td></tr>
 <tr><td>
@@ -54,7 +54,7 @@ request.setAttribute("basePath", basePath);
   </div>
   
   <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/selectTool.js"></script>
-  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/rolePermissionList.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/roleMenuList.js"></script>
   
   </body>
 </html>

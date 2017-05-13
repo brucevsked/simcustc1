@@ -399,6 +399,8 @@ insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_6');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_7');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_8');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_9');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_10');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9');
 
 select * from sysRoleMenuT;

@@ -51,3 +51,12 @@ function edit(){
 		toastr.info('请选择行', '提示');
 	}
 }
+
+function roleMenu(){
+	var row = $('#mytb').datagrid('getSelected');
+	if (row){
+		loadPage('roleMenuListPage?smId='+row.SMID);
+	}else{
+		toastr.info('请选择行', '提示');
+	}
+}

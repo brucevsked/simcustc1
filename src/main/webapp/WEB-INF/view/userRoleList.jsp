@@ -15,7 +15,7 @@ request.setAttribute("basePath", basePath);
   </head>
   
   <body>
-  <div id="userRoleDiv" title="为用户${data.SUNICK }分配角色" class="easyui-panel" style="width:100%;height:100%;">
+  <div id="userRoleDiv" title="为用户[${data.SUNICK }]分配角色" class="easyui-panel" style="width:100%;height:100%;">
 <form id="fm" method="post" action="${basePath }userRoleProc">
 <input type="hidden" id="suId" name="suId" value="${data.SUID }">
 <table style="width:100%;height:85%;" border="0.5" cellspacing="0" bordercolor="#95B8E7">
