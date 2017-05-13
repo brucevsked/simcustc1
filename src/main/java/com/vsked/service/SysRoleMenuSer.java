@@ -85,11 +85,13 @@ public class SysRoleMenuSer extends BaseService {
 			    	String srIds=(String) parMap.get("srIds");
 			    	String[] srIdArray=srIds.split(",");
 			    	for(String srId:srIdArray){
+			    		if(!"".equals(srId)){
 			    		Map<String, Object> m=new HashMap<String, Object>();
 			    		m.put("smId", smId);
 			    		m.put("srId", srId);
 			    		int effectLine=sysRoleMenuDao.sysRoleMenuAdd(m);
 			    		resultCount+=effectLine;
+			    		}
 			    	}
 			    }
 			    result="总计绑定角色"+resultCount+"个";

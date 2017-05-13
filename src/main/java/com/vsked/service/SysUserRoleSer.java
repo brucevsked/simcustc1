@@ -109,11 +109,13 @@ public class SysUserRoleSer extends BaseService {
 			    	String srIds=(String) parMap.get("srIds");
 			    	String[] srIdArray=srIds.split(",");
 			    	for(String srId:srIdArray){
+			    		if(!"".equals(srId)){
 			    		Map<String, Object> m=new HashMap<String, Object>();
 			    		m.put("suId", suId);
 			    		m.put("srId", srId);
 			    		int effectLine=sysUserRoleDao.sysUserRoleAdd(m);
 			    		resultCount+=effectLine;
+			    		}
 			    	}
 			    }
 			    result="总计绑定角色"+resultCount+"个";

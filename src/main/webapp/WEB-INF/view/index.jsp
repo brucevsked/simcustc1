@@ -21,23 +21,7 @@ request.setAttribute("basePath", basePath);
     <div id="cc" class="easyui-layout" style="width:100%;height:100%;">
         <div data-options="region:'north',title:'[${user.SUNAME }]的菜单,用户别名为[${user.SUNICK }]',split:true" style="height:80px;" id="menuDiv" >
         <!-- menu start -->
-        <div class="easyui-panel" style="padding:5px;" id="menuDiv">
-        <a href="${basePath }index" class="easyui-linkbutton" data-options="plain:true">主页</a>
-        <a href="#" class="easyui-splitbutton" data-options="menu:'#mm1'">系统管理</a>
-        <a href="${basePath }logout" class="easyui-linkbutton" data-options="plain:true">注销</a>
-        </div>
-<div id="mm1">
-<div onclick="userListPage();">用户列表</div>
-<div onclick="userAddPage();">用户添加</div>
-<div onclick="roleListPage();">角色列表</div>
-<div onclick="roleAddPage();">角色添加</div>
-<div onclick="permissionListPage();">权限列表</div>
-<div onclick="permissionAddPage();">权限添加</div>
-<div onclick="functionListPage();">功能列表</div> 
-<div onclick="functionAddPage();">功能添加</div>
-<div onclick="menuListPage();">菜单列表</div> 
-<div onclick="menuAddPage();">菜单添加</div>
-</div>
+
          <!-- menu end -->
         </div>
         <div data-options="region:'center'" id="mainDiv"></div>

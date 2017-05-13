@@ -96,11 +96,13 @@ public class SysRolePermissionSer extends BaseService {
 			    	String srIds=(String) parMap.get("srIds");
 			    	String[] srIdArray=srIds.split(",");
 			    	for(String srId:srIdArray){
+			    		if(!"".equals(srId)){
 			    		Map<String, Object> m=new HashMap<String, Object>();
 			    		m.put("spId", spId);
 			    		m.put("srId", srId);
 			    		int effectLine=sysRolePermissionDao.sysRolePermissionAdd(m);
 			    		resultCount+=effectLine;
+			    		}
 			    	}
 			    }
 			    result="总计绑定角色"+resultCount+"个";

@@ -121,7 +121,7 @@ function getDataOptions(dt,menuList){
 	if(dt.SMDATAOPTIONS==undefined){
 		return ' ';
 	}else{
-		if(dt.SMDATAOPTIONS.indexOf('menu')>0){
+		if(dt.SMDATAOPTIONS.indexOf('menu')>=0){
 			//有子菜单时
 			var s1=dt.SMDATAOPTIONS;
 			var menuTmpId='';
@@ -134,14 +134,12 @@ function getDataOptions(dt,menuList){
 			}
             var subMenuList=getSubMenus(dt,menuList);
             var subMenuStr='';
-            subMenuStr=('<div id="'+menuTmpId+'"');
+            subMenuStr=('<div id="'+menuTmpId+'" >');
 			$.each(subMenuList,function (index,el){
 				subMenuStr+=('<div '+getMenuClick(el)+' >'+el.SMNAME+'</div>');
 			});
 			subMenuStr+=('</div>');
-			console.log(11)
-			$('#menuDiv').html($('#menuDiv').html()+subMenuStr);
-			$.parser.parse('#menuDiv');
+			$('#menuDiv').append(subMenuStr);
 		}
 		//无子菜单时
 		return ' data-options="'+dt.SMDATAOPTIONS+'" ';
