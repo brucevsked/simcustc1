@@ -34,6 +34,17 @@ function loadPage(pageUrl,data,callback){
 }
 
 /**
+ * 移除元素
+ * @param _element
+ */
+function removeElement(_element){
+    var _parentElement = _element.parentNode;
+    if(_parentElement){
+           _parentElement.removeChild(_element);
+    }
+}
+
+/**
  * 载入当前用户菜单
  */
 function userMenu(){
@@ -134,6 +145,10 @@ function getDataOptions(dt,menuList){
 			}
             var subMenuList=getSubMenus(dt,menuList);
             var subMenuStr='';
+            var tmpSubMenu=document.getElementById(menuTmpId);
+            if(tmpSubMenu!=null){
+            	removeElement(tmpSubMenu);
+            }
             subMenuStr=('<div id="'+menuTmpId+'" >');
 			$.each(subMenuList,function (index,el){
 				subMenuStr+=('<div '+getMenuClick(el)+' >'+el.SMNAME+'</div>');
