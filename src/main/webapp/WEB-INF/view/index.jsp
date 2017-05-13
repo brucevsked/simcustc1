@@ -19,7 +19,7 @@ request.setAttribute("basePath", basePath);
 </head>
 <body>
     <div id="cc" class="easyui-layout" style="width:100%;height:100%;">
-        <div data-options="region:'north',title:'${user.SUNAME }的菜单,用户别名为${user.SUNICK }',split:true" style="height:80px;" id="menuDiv">
+        <div data-options="region:'north',title:'[${user.SUNAME }]的菜单,用户别名为[${user.SUNICK }]',split:true" style="height:80px;" id="menuDiv" >
         <!-- menu start -->
         <div class="easyui-panel" style="padding:5px;" id="menuDiv">
         <a href="${basePath }index" class="easyui-linkbutton" data-options="plain:true">主页</a>

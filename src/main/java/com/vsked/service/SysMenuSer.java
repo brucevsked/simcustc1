@@ -123,5 +123,23 @@ public class SysMenuSer extends BaseService {
 		}
 		return result;
 	}
+	
+	/**
+	 * 获取当前用户菜单列表
+	 * @return
+	 */
+	public String getUserMenu(){
+		StringBuilder sb=new StringBuilder();
+		try{
+			Map<String, Object> curUser=getCurrentUser();
+			String suId=(String) curUser.get("SUID");
+			List<Map<String, Object>> dataList=sysMenuDao.getSysUserMenuBySuId(suId);
+			String dataListJson=BaseJson.listToJson(dataList);
+			sb.append(dataListJson);
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return sb.toString();
+	}
 
 }

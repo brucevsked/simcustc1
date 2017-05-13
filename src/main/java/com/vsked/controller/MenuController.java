@@ -54,4 +54,10 @@ public class MenuController {
 	public String menuEditProc(HttpServletRequest req){
 		return sysMenuSer.menuEditProc(req);
 	}
+	
+	@PostMapping("userMenu")
+	@ResponseBody
+	public String userMenu(){
+		return sysMenuSer.getUserMenu();
+	}
 }

@@ -48,6 +48,14 @@ public class SysMenuDaoTest extends TestMyBatis{
 	}
 	
 //	@Test
+	public void getSysUserMenuBySuId(){
+		String suId="10000000000000000000000000000001";
+		List<Map<String, Object>> dataList=sysMenuDao.getSysUserMenuBySuId(suId);
+		log.debug(dataList);
+		log.debug(dataList.size());
+	}
+	
+//	@Test
 	public void sysMenuAdd(){
 		Map<String, Object> m=new HashMap<String, Object>();
 		m.put("smName", "testmenu");

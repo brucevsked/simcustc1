@@ -45,6 +45,7 @@ function submitForm(){
 		srIds:srIds
 		    },function (dt){
 		    	toastr.info(dt, '添加结果');
+		    	userMenu();//重新加载菜单
 		    	}
 		    );
 }

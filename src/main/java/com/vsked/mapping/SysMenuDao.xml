@@ -3,6 +3,11 @@
 
 <mapper namespace="com.vsked.dao.SysMenuDao">
 
+	<select id="getSysMenuCount" resultType="java.lang.Integer">
+		select count(0) from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
+		<include refid="myWhere" />
+	</select>
+	
 	<select id="getSysMenuList" resultType="java.util.Map">
 		select a1.*,b1.smName smName1 from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
 		<include refid="myWhere" />
@@ -12,9 +17,13 @@
 		select * from sysMenuT where smId=#{smId,jdbcType=NVARCHAR}
 	</select>
 	
-	<select id="getSysMenuCount" resultType="java.lang.Integer">
-		select count(0) from sysMenuT a1 left join sysMenuT b1 on a1.parentSmId=b1.smId 
-		<include refid="myWhere" />
+	<select id="getSysUserMenuBySuId" resultType="java.util.Map">
+select * from sysMenuT where smId in(
+    select distinct smId from sysRoleMenuT 
+    where srId in(
+    select srId from sysUserRoleT where suId=#{suId,jdbcType=NVARCHAR}
+    )
+) order by smAddTime
 	</select>
 	
 	<insert id="sysMenuAdd" >

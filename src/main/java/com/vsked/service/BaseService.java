@@ -76,11 +76,11 @@ public class BaseService {
 	}
 	
 	/**
-	 * 获取当胶用户信息
-	 * @return
+	 * 获取当前用户信息
+	 * @return map
 	 */
 	@SuppressWarnings("unchecked")
-	public Map<String, Object> getUser(){
+	public Map<String, Object> getCurrentUser(){
 		Subject currentUser = SecurityUtils.getSubject();
 		return (Map<String, Object>) currentUser.getPrincipal();
 	}
