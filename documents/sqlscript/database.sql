@@ -366,7 +366,7 @@ alter table sysMenuT add constraint fk_sysMenuT_parentSmId foreign key(parentSmI
 
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('1','主页','index',null,'easyui-linkbutton','plain:true',null) ;
 
-insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2'   ,'系统管理','javascript:void(0);',null,'easyui-linkbutton','menu:''#mm1''',null) ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2'   ,'系统管理','javascript:void(0);',null,'easyui-splitbutton','menu:''#mm1''',null) ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_1' ,'用户列表','javascript:void(0);','userListPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_2' ,'用户添加','javascript:void(0);','userAddPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_3' ,'角色列表','javascript:void(0);','roleListPage();',null,null,'2') ;
