@@ -153,6 +153,13 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000039','userPassPage:get'    ,'密码修改页'            )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000040','userPassProc:post'   ,'密码修改处理'          )  ;
 
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000041','carrierListPage:get'   ,'运营商列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000042','carrierListData:post'  ,'运营商列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000043','carrierAddPage:get'    ,'运营商添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000044','carrierAddProc:post'   ,'运营商添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000045','carrierEditPage:get'   ,'运营商修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000046','carrierEditProc:post'  ,'运营商修改处理')  ;
+
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
 
@@ -262,6 +269,12 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000038') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000039') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000040') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000041') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000042') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000043') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000044') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000045') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000046') ;
 
 
 
@@ -338,6 +351,13 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000040','/userPassPage'    ,'20000000000000000000000000000039',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000041','/userPassProc'    ,'20000000000000000000000000000040',null,'cusperm') ;
 
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000042','/carrierListPage'            ,'20000000000000000000000000000041',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000043','/carrierListData'            ,'20000000000000000000000000000042',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000044','/carrierAddPage'             ,'20000000000000000000000000000043',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000045','/carrierAddProc'             ,'20000000000000000000000000000044',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000046','/carrierEditPage'            ,'20000000000000000000000000000045',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000047','/carrierEditProc'            ,'20000000000000000000000000000046',null,'cusperm') ;
+
 
 select * from sysFunctionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -377,6 +397,8 @@ insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_8' ,'功能添加','javascript:void(0);','functionAddPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_9' ,'菜单列表','javascript:void(0);','menuListPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_10','菜单添加','javascript:void(0);','menuAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_11','运营商列表','javascript:void(0);','carrierListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_12','运商商添加','javascript:void(0);','carrierAddPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9'   ,'注销','logout',null,'easyui-linkbutton','plain:true',null) ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('100' ,'修改密码','javascript:void(0);','myPassPage()','easyui-linkbutton','plain:true',null) ;
 
@@ -410,6 +432,8 @@ insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_8');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_9');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_10');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_11');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_12');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','100');
 

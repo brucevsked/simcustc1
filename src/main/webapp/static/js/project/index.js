@@ -245,3 +245,11 @@ function myPassPage(){
 	loadPage('userPassPage?suId=');
 }
 
+function carrierListPage(){
+	loadPage('carrierListPage');
+}
+
+function carrierAddPage(){
+	loadPage('carrierAddPage');
+}
+

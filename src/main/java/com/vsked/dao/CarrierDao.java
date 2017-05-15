@@ -5,10 +5,10 @@ import java.util.Map;
 
 public interface CarrierDao {
 	
-	public int getSysCarrierCount(Map<String, Object> m);
+	public int getCarrierCount(Map<String, Object> m);
 	
-	public List<Map<String,Object>> getSysCarrierList(Map<String, Object> m);
+	public List<Map<String,Object>> getCarrierList(Map<String, Object> m);
 	
-	public Map<String,Object> getSysCarrierByCarrierId(String carrierId);
+	public Map<String,Object> getCarrierByCarrierId(String carrierId);
 	
 }

@@ -14,7 +14,6 @@ import com.vsked.common.BaseJson;
 import com.vsked.common.Page;
 import com.vsked.dao.SysFunctionDao;
 
-
 @Service
 @Transactional
 public class SysFunctionSer extends BaseService {

@@ -21,19 +21,26 @@ public class CarrierDaoTest extends TestMyBatis{
 //		m.put("carrierName", "通信");
 //		m.put("carrierNick", "远特");
 //		m.put("carrierShortName", "远特");
-		int count=carrierDao.getSysCarrierCount(m);
+		int count=carrierDao.getCarrierCount(m);
 		log.debug(count);
 	}
 	
-	@Test
+//	@Test
 	public void getSysCarrierList(){
 		Map<String, Object> m=new HashMap<String, Object>();
 //		m.put("carrierName", "通信");
 //		m.put("carrierNick", "远特");
 //		m.put("carrierShortName", "远特");
-		List<Map<String, Object>> dataList=carrierDao.getSysCarrierList(m);
+		List<Map<String, Object>> dataList=carrierDao.getCarrierList(m);
 		log.debug(dataList);
 		log.debug(dataList.size());
+	}
+	
+	@Test
+	public void getCarrierByCarrierId(){
+		String carrierId="carrier0000000000000000000000001";
+		Map<String, Object> data=carrierDao.getCarrierByCarrierId(carrierId);
+		log.debug(data);
 	}
 
 }

@@ -3,19 +3,19 @@
 
 <mapper namespace="com.vsked.dao.CarrierDao">
 
-	<select id="getSysCarrierCount" resultType="java.lang.Integer">
+	<select id="getCarrierCount" resultType="java.lang.Integer">
 		select count(0) from carrierT
 		<include refid="myWhere" />
 	</select>
 	
-	<select id="getSysCarrierList" resultType="java.util.Map">
+	<select id="getCarrierList" resultType="java.util.Map">
 		select * from carrierT
 		<include refid="myWhere" /> 
 		order by carrierAddTime desc
 	</select>
 	
-	<select id="getSysCarrierByCarrierId" resultType="java.util.Map">
-		select * from sysMenuT where smId=#{smId,jdbcType=NVARCHAR}
+	<select id="getCarrierByCarrierId" resultType="java.util.Map">
+		select * from carrierT where carrierId=#{carrierId,jdbcType=NVARCHAR}
 	</select>
 
 	
