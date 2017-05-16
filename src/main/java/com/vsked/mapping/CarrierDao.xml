@@ -18,6 +18,19 @@
 		select * from carrierT where carrierId=#{carrierId,jdbcType=NVARCHAR}
 	</select>
 
+	<insert id="carrierAdd" >
+	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
+	  insert into carrierT(carrierId,carrierName,carrierNick,carrierShortName,officialWebSite,hotline) 
+	  values(#{myuuid,jdbcType=NVARCHAR},#{carrierName,jdbcType=NVARCHAR},#{carrierNick,jdbcType=NVARCHAR},
+	  #{carrierShortName,jdbcType=NVARCHAR},#{officialWebSite,jdbcType=NVARCHAR},#{hotline,jdbcType=NVARCHAR}) 
+	</insert>
+	
+	<update id="carrierEdit">
+	  update carrierT set carrierName=#{carrierName,jdbcType=NVARCHAR} ,carrierNick=#{carrierNick,jdbcType=NVARCHAR} , 
+	  carrierShortName=#{carrierShortName,jdbcType=NVARCHAR},officialWebSite=#{officialWebSite,jdbcType=NVARCHAR} ,
+	  hotline=#{hotline,jdbcType=NVARCHAR} 
+	  where carrierId=#{carrierId,jdbcType=NVARCHAR}
+	</update>
 	
     <sql id="myWhere">
     <where>

@@ -2,11 +2,14 @@ package com.vsked.service;
 
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.github.pagehelper.PageHelper;
 import com.vsked.common.BaseJson;
 import com.vsked.common.Page;
@@ -55,5 +58,54 @@ public class CarrierSer extends BaseService {
 		}
 		
 		return sb.toString();
+	}
+	
+	public String carrierAddProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=carrierDao.carrierAdd(data);
+			if(effectLine<=0){
+				result="运营商添加失败。";
+			}else{
+				result="运营商:"+data.get("carrierName")+"添加成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="运营商添加出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String carrierEditProc(HttpServletRequest req){
+		String result="";
+		try{
+			Map<String, Object> data=getMaps(req);
+			int effectLine=carrierDao.carrierEdit(data);
+			if(effectLine<=0){
+				result="运营商修改失败。";
+			}else{
+				result="运营商:"+data.get("carrierName")+"修改成功.";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+			result="运营商修改出现异常,请联系管理员.";
+		}
+		return result;
+	}
+	
+	public String carrierEditPage(HttpServletRequest req){
+		String result="carrierListPage";
+		try{
+			Map<String, Object> parMap=getMaps(req);
+			if(parMap.containsKey("carrierId")){
+			Map<String, Object> data=carrierDao.getCarrierByCarrierId((String) parMap.get("carrierId"));
+			getSession().setAttribute("data", data);
+			result="carrierEdit";
+			}
+		}catch(Exception e){
+			log.error(e.getMessage());
+		}
+		return result;
 	}
 }

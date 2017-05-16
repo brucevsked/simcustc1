@@ -36,11 +36,36 @@ public class CarrierDaoTest extends TestMyBatis{
 		log.debug(dataList.size());
 	}
 	
-	@Test
+//	@Test
 	public void getCarrierByCarrierId(){
 		String carrierId="carrier0000000000000000000000001";
 		Map<String, Object> data=carrierDao.getCarrierByCarrierId(carrierId);
 		log.debug(data);
+	}
+	
+//	@Test
+	public void carrierAdd(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("carrierName", "联想通信");
+		m.put("carrierNick", "懂的通信");
+		m.put("carrierShortName", "联想");
+		m.put("officialWebSite", "http://10041.lenovo.com/MVNO-OBH/charge/toChargeIntro");
+		m.put("hotline", "400-641-0041");
+		int effectLine=carrierDao.carrierAdd(m);
+		log.debug(effectLine);
+	}
+	
+//	@Test
+	public void carrierEdit(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("carrierId", "44E11BFDCB414153A2E7A616402A7B11");
+		m.put("carrierName", "联想通信");
+		m.put("carrierNick", "懂的通信");
+		m.put("carrierShortName", "联想");
+		m.put("officialWebSite", "http://10041.lenovo.com/MVNO-OBH/charge/toChargeIntro");
+		m.put("hotline", "400-641-0041");
+		int effectLine=carrierDao.carrierEdit(m);
+		log.debug(effectLine);
 	}
 
 }

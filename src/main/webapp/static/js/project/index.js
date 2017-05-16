@@ -245,10 +245,16 @@ function myPassPage(){
 	loadPage('userPassPage?suId=');
 }
 
+/**
+ * 运营商列表页
+ */
 function carrierListPage(){
 	loadPage('carrierListPage');
 }
 
+/**
+ * 运营商添加页
+ */
 function carrierAddPage(){
 	loadPage('carrierAddPage');
 }

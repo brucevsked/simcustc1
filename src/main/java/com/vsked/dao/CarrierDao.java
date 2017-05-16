@@ -11,4 +11,7 @@ public interface CarrierDao {
 	
 	public Map<String,Object> getCarrierByCarrierId(String carrierId);
 	
+	public int carrierAdd(Map<String, Object> m);
+	
+	public int carrierEdit(Map<String, Object> m);
 }
