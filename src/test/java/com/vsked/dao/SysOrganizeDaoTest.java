@@ -38,6 +38,34 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 		log.debug(dataList.size());
 	}
 	
+//	@Test
+	public void getSysOrganizeBySoId(){
+		String soId="orga0000000000000000000000010000";
+		Map<String, Object> data=sysOrganizeDao.getSysOrganizeBySoId(soId);
+		log.debug(data);
+	}
 	
-
+//	@Test
+	public void sysOrganizeAdd(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("soName", "电商组");
+		m.put("soCode", "dsz");
+		m.put("soSort", "3");
+		m.put("parentSoId", "orga0000000000000000000000010005");
+		int effectLine=sysOrganizeDao.sysOrganizeAdd(m);
+		log.debug(effectLine);
+	}
+	
+//	@Test
+	public void sysOrganizeEdit(){
+		Map<String, Object> m=new HashMap<String, Object>();
+		m.put("soId", "01A7123FE7AC48668515568E685FC41B");
+		m.put("soName", "电商组");
+		m.put("soCode", "dsz");
+		m.put("soSort", "3");
+		m.put("parentSoId", "orga0000000000000000000000010005");
+		int effectLine=sysOrganizeDao.sysOrganizeEdit(m);
+		log.debug(effectLine);
+	}
+	
 }
