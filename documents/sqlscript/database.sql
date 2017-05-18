@@ -23,6 +23,7 @@
 /**  数据查询区  **/
 
 /********+*********+*********+*********+*********+*********+*/
+drop table sysOrganizeT;
 drop table sysRoleMenuT;
 drop table sysFunctionT ;
 drop table sysRolePermissionT ;
@@ -31,6 +32,41 @@ drop table sysRoleT ;
 drop table sysPermissionT ;
 drop table sysUserT ;
 drop table sysMenuT;
+/********+*********+*********+*********+*********+*********+*/
+
+create table sysOrganizeT(
+soId nvarchar2(64)  primary key,        --组织编号
+soName nvarchar2(640) unique not null,  --组织名
+soCode nvarchar2(64),                   --组织代码
+soSort number(10),                      --排序
+parentSoId nvarchar2(64),               --上级组织
+soAddTime timestamp default sysdate     --添加时间
+);
+
+comment on table  sysOrganizeT              is '组织表'        ;
+comment on column sysOrganizeT.soId         is '组织ID'        ;
+comment on column sysOrganizeT.soName       is '组织名'        ;
+comment on column sysOrganizeT.soCode       is '组织代码'      ;
+comment on column sysOrganizeT.soSort       is '排序'          ;
+comment on column sysOrganizeT.parentSoId   is '上级组织'      ;
+comment on column sysOrganizeT.soAddTime    is '组织添加时间'  ;
+
+alter table sysOrganizeT add constraint fk_sysOrganizeT_parentSoId foreign key(parentSoId) references sysOrganizeT(soId);
+
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010000','山东济南有限公司','jnyxgs',0,null);
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010001','总经办','zjb',0,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010002','财务部','cwb',1,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010003','综合管理部','zhglb',2,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010004','经营管理部','jyglb',3,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010005','规划发展部','ghfzb',4,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010006','虚商部','xs',5,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('xushang0000000000000000000000001','BOD','bod',0,'orga0000000000000000000000010005');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('xushang0000000000000000000000002','产品组','cpz',1,'orga0000000000000000000000010005');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('xushang0000000000000000000000003','仓库','ck',2,'orga0000000000000000000000010005');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010007','移动互联事业部','ydhlsyb',6,'orga0000000000000000000000010000');
+insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) VALUES('orga0000000000000000000000010008','动漫事业部','dmsyb',7,'orga0000000000000000000000010000');
+
+select * from sysOrganizeT;
 /********+*********+*********+*********+*********+*********+*/
 
 create table sysUserT(
