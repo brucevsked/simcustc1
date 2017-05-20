@@ -34,6 +34,22 @@ function loadPage(pageUrl,data,callback){
 }
 
 /**
+ * 是否存在某种权限如果没有移除元素
+ * @param permission 权限表达式
+ * @param elId 元素id
+ */
+function isExistPermission(permission,elId){
+	var myBasePath=basePath+'isExistPermission';
+	$.post(myBasePath,{myPermission:permission},function (dt){
+		if(dt!='true'){
+			var el=document.getElementById(elId);
+			removeElement(el);
+		}
+	 }
+	);
+}
+
+/**
  * 移除元素
  * @param _element
  */
