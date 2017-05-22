@@ -205,6 +205,20 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000051','organizeEditPage:get'   ,'组织修改页'  )  ;
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000052','organizeEditProc:post'  ,'组织修改处理')  ;
 
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000053','dictionaryTypeListPage:get'   ,'字典类型列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000054','dictionaryTypeListData:post'  ,'字典类型列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000055','dictionaryTypeAddPage:get'    ,'字典类型添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000056','dictionaryTypeAddProc:post'   ,'字典类型添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000057','dictionaryTypeEditPage:get'   ,'字典类型修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000058','dictionaryTypeEditProc:post'  ,'字典类型修改处理')  ;
+
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000059','dictionaryListPage:get'   ,'字典列表页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000060','dictionaryListData:post'  ,'字典列表数据')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000061','dictionaryAddPage:get'    ,'字典添加页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000062','dictionaryAddProc:post'   ,'字典添加处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000063','dictionaryEditPage:get'   ,'字典修改页'  )  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000064','dictionaryEditProc:post'  ,'字典修改处理')  ;
+
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
 
@@ -326,6 +340,18 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000050') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000051') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000052') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000053') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000054') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000055') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000056') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000057') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000058') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000059') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000060') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000061') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000062') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000063') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000064') ;
 
 
 
@@ -416,6 +442,20 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000052','/organizeEditPage'            ,'20000000000000000000000000000051',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000053','/organizeEditProc'            ,'20000000000000000000000000000052',null,'cusperm') ;
 
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000054','/dictionaryTypeListPage'            ,'20000000000000000000000000000053',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000055','/dictionaryTypeListData'            ,'20000000000000000000000000000054',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000056','/dictionaryTypeAddPage'             ,'20000000000000000000000000000055',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000057','/dictionaryTypeAddProc'             ,'20000000000000000000000000000056',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000058','/dictionaryTypeEditPage'            ,'20000000000000000000000000000057',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000059','/dictionaryTypeEditProc'            ,'20000000000000000000000000000058',null,'cusperm') ;
+
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000060','/dictionaryListPage'            ,'20000000000000000000000000000059',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000061','/dictionaryListData'            ,'20000000000000000000000000000060',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000062','/dictionaryAddPage'             ,'20000000000000000000000000000061',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000063','/dictionaryAddProc'             ,'20000000000000000000000000000062',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000064','/dictionaryEditPage'            ,'20000000000000000000000000000063',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000065','/dictionaryEditProc'            ,'20000000000000000000000000000064',null,'cusperm') ;
+
 
 select * from sysFunctionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -459,6 +499,11 @@ insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_12','运商商添加','javascript:void(0);','carrierAddPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_13','组织列表','javascript:void(0);','organizeListPage();',null,null,'2') ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_14','组织添加','javascript:void(0);','organizeAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_15','字典类型列表','javascript:void(0);','dictionaryTypeListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_16','字典类型添加','javascript:void(0);','dictionaryTypeAddPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_17','字典列表','javascript:void(0);','dictionaryListPage();',null,null,'2') ;
+insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('2_18','字典添加','javascript:void(0);','dictionaryAddPage();',null,null,'2') ;
+
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('9'   ,'注销','logout',null,'easyui-linkbutton','plain:true',null) ;
 insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) VALUES('100' ,'修改密码','javascript:void(0);','myPassPage()','easyui-linkbutton','plain:true',null) ;
 
@@ -496,6 +541,10 @@ insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_12');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_13');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_14');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_15');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_16');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_17');
+insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','2_18');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9');
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','100');
 
