@@ -9,6 +9,8 @@ public interface SysOrganizeDao {
 	
 	public List<Map<String,Object>> getSysOrganizeList(Map<String, Object> m);
 	
+	public List<Map<String,Object>> getSysOrganizeListAll();
+	
 	public Map<String,Object> getSysOrganizeBySoId(String soId);
 	
 	public int sysOrganizeAdd(Map<String, Object> m);

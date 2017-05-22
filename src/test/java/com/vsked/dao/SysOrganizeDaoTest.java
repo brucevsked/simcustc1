@@ -40,7 +40,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysOrganizeBySoId(){
-		String soId="orga0000000000000000000000010000";
+		String soId="orga0000000000000000000000010002";
 		Map<String, Object> data=sysOrganizeDao.getSysOrganizeBySoId(soId);
 		log.debug(data);
 	}
@@ -63,7 +63,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 		m.put("soName", "电商组");
 		m.put("soCode", "dsz");
 		m.put("soSort", "3");
-		m.put("parentSoId", "orga0000000000000000000000010005");
+		m.put("parentSoId", "orga0000000000000000000000010006");
 		int effectLine=sysOrganizeDao.sysOrganizeEdit(m);
 		log.debug(effectLine);
 	}

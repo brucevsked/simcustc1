@@ -14,6 +14,10 @@
 		order by a1.soAddTime desc 
 	</select>
 	
+	<select id="getSysOrganizeListAll" resultType="java.util.Map">
+    select soId as "id",soName as "name",parentSoId as "parentId" from sysOrganizeT
+	</select>
+	
 	<select id="getSysOrganizeBySoId" resultType="java.util.Map">
 		select * from sysOrganizeT where soId=#{soId,jdbcType=NVARCHAR}
 	</select>
