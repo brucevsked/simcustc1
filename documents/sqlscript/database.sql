@@ -1,6 +1,6 @@
 
 /**
- *this code by vsk
+ *this code by vsked
  *create 201704261019
  *lastModify 201704261019
  *任何人有字段修改需要在注释与本头部进行声明！
@@ -32,6 +32,8 @@ drop table sysRoleT ;
 drop table sysPermissionT ;
 drop table sysUserT ;
 drop table sysMenuT;
+drop table sysDictionaryTypeT;
+drop table sysDictionaryT;
 /********+*********+*********+*********+*********+*********+*/
 
 create table sysOrganizeT(
@@ -498,4 +500,46 @@ insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','9
 insert into sysRoleMenuT(srId,smId) VALUES('30000000000000000000000000000001','100');
 
 select * from sysRoleMenuT;
+/********+*********+*********+*********+*********+*********+*/
+
+create table sysDictionaryTypeT(
+sdtId nvarchar2(64)  primary key,        --字典类型编号
+sdtName nvarchar2(640) unique not null,  --字典类型显示名
+sdtAddTime timestamp default sysdate     --添加时间
+);
+
+comment on table  sysDictionaryTypeT                is '字典类型表'        ;
+comment on column sysDictionaryTypeT.sdtId          is '字典类型编号'      ;
+comment on column sysDictionaryTypeT.sdtName        is '字典类型名称'      ;
+comment on column sysDictionaryTypeT.sdtAddTime     is '字典类型添加时间'  ;
+
+insert into sysDictionaryTypeT(sdtId,sdtName) VALUES('sysDictionaryType000000000000001','性别');
+insert into sysDictionaryTypeT(sdtId,sdtName) VALUES('sysDictionaryType000000000000002','号卡状态');
+
+select * from sysDictionaryTypeT;
+/********+*********+*********+*********+*********+*********+*/
+
+create table sysDictionaryT(
+sdId nvarchar2(64)  primary key,       --字典编号
+sdtId nvarchar2(64) not null,          --字典类型编号
+sdName nvarchar2(640) unique not null, --字典显示名
+sdValue nvarchar2(640),                --值
+sdSort number(10),                     --排序
+sdAddTime timestamp default sysdate     --添加时间
+);
+
+comment on table  sysDictionaryT                is '字典表'            ;
+comment on column sysDictionaryT.sdId           is '字典编号'          ;
+comment on column sysDictionaryT.sdtId          is '字典类型编号'      ;
+comment on column sysDictionaryT.sdName         is '字典类型名称'      ;
+comment on column sysDictionaryT.sdValue        is '字典类型名称'      ;
+comment on column sysDictionaryT.sdSort         is '字典类型名称'      ;
+comment on column sysDictionaryT.sdAddTime      is '字典类型添加时间'  ;
+
+alter table sysDictionaryT add constraint fk_sysDictionaryT_sdtId foreign key(sdtId) references sysDictionaryTypeT(sdtId);
+
+insert into sysDictionaryT(sdId,sdtId,sdName,sdValue,sdSort) VALUES('sysDictionary0000000000000000001','sysDictionaryType000000000000001','女','0',1);
+insert into sysDictionaryT(sdId,sdtId,sdName,sdValue,sdSort) VALUES('sysDictionary0000000000000000002','sysDictionaryType000000000000001','男','1',2);
+
+select * from sysDictionaryT;
 /********+*********+*********+*********+*********+*********+*/
