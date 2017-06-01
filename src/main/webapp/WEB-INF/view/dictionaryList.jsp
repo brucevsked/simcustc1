@@ -9,7 +9,7 @@ request.setAttribute("basePath", basePath);
   <head>
     <base href="${basePath }">
     
-    <title>组织列表</title>
+    <title>字典列表</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -17,9 +17,9 @@ request.setAttribute("basePath", basePath);
   <body>
   
   <div id="searchPanel" class="easyui-panel">
-  <input id="soName" name="soName" class="easyui-textbox" label="组织名称:" style="width: 18%">
-  <input id="soCode" name="soCode" class="easyui-textbox" label="代码:" style="width: 18%">
-  <input id="soName1" name="soName1" class="easyui-textbox" label="上级组织:" style="width: 18%">
+  <input id="sdName" name="sdName" class="easyui-textbox" label="字典名称:" style="width: 18%">
+  <input id="sdValue" name="sdValue" class="easyui-textbox" label="字典值:" style="width: 18%">
+  <input id="sdtName" name="sdtName" class="easyui-textbox" label="字典类型:" style="width: 18%">
   <button class="easyui-linkbutton" type="button" onclick="query()">&nbsp;查 &nbsp;询&nbsp;</button> <br>
   <button class="easyui-linkbutton" type="button" onclick="edit()">&nbsp;编&nbsp;辑&nbsp;</button>
   </div>
@@ -27,15 +27,15 @@ request.setAttribute("basePath", basePath);
     <table id="mytb" toolbar="#searchPanel">
     <thead>
       <tr>
-        <th field="SONAME" >名称</th>
-        <th field="SOCODE" >代码</th>
-        <th field="SOSORT" >排序</th>
-        <th field="SONAME1" >上级组织</th>
+        <th field="SDNAME" >名称</th>
+        <th field="SDVALUE" >值</th>
+        <th field="SDSORT" >排序</th>
+        <th field="SDTNAME" >字典类型</th>
       </tr>
     </thead>
     </table>
     
-  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/organizeList.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="${basePath }static/js/project/dictionaryList.js"></script>
   
   </body>
 </html>

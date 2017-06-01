@@ -8,7 +8,7 @@ $(function(){
         striped: true,
         border: true, 
         url:basePath+'dictionaryListData',
-        idField:'SOID', 
+        idField:'SDID', 
         singleSelect:true,//是否单选 
         pagination:true,//分页控件 
         rownumbers:true //行号 
@@ -26,25 +26,25 @@ $(function(){
     
 	$.parser.parse();//重新加载样式
 	
-    $('#soName').textbox('textbox').focus(); 
+    $('#sdName').textbox('textbox').focus(); 
     
 });
 
 function query(){
-	var soName=$('#soName').val();
-	var soCode=$('#soCode').val();
-	var soName1=$('#soName1').val();
+	var sdName=$('#sdName').val();
+	var sdValue=$('#sdValue').val();
+	var sdtName=$('#sdtName').val();
 	$('#mytb').datagrid('load',{
-		soName: soName,
-		soCode: soCode,
-		soName1:soName1
+		sdName: sdName,
+		sdValue: sdValue,
+		sdtName:sdtName
 	});
 }
 
 function edit(){
 	var row = $('#mytb').datagrid('getSelected');
 	if (row){
-		loadPage('dictionaryEditPage?sdId='+row.SOID);
+		loadPage('dictionaryEditPage?sdId='+row.SDID);
 	}else{
 		toastr.info('请选择行', '提示');
 	}

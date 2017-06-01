@@ -45,7 +45,7 @@ public class SysDictionaryDaoTest extends TestMyBatis{
 		log.debug(dataList.size());
 	}
 	
-//	@Test
+	@Test
 	public void getSysDictionaryBySdId(){
 		String sdId="sysDictionary0000000000000000002";
 		Map<String, Object> data=sysDictionaryDao.getSysDictionaryBySdId(sdId);
