@@ -24,6 +24,12 @@ public class DictionaryTypeController {
 	public String dictionaryTypeListData(HttpServletRequest req){
 		return sysDictionaryTypeSer.sysDictionaryTypeList(req);
 	}
+	
+	@PostMapping("dictionaryTypeListDataAll")
+	@ResponseBody
+	public String dictionaryTypeListDataAll(){
+		return sysDictionaryTypeSer.sysDictionaryTypeListAll();
+	}
 
 	@GetMapping("dictionaryTypeAddPage")
 	public String dictionaryTypeAddPage(){
