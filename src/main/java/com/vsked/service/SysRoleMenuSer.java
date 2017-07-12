@@ -35,7 +35,7 @@ public class SysRoleMenuSer extends BaseService {
 				
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return resultPage;
 	}
@@ -50,7 +50,7 @@ public class SysRoleMenuSer extends BaseService {
 				sb.append(dataListJson);
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sb.toString();
 	}
@@ -65,7 +65,7 @@ public class SysRoleMenuSer extends BaseService {
 				sb.append(dataListJson);
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sb.toString();
 	}
@@ -96,7 +96,7 @@ public class SysRoleMenuSer extends BaseService {
 				result="参数不完整请联系管理员.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="角色绑定出现异常,请联系管理员.";
 			//手动回滚事务
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();

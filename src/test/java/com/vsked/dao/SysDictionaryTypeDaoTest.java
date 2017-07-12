@@ -25,7 +25,7 @@ public class SysDictionaryTypeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysDictionaryTypeCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sdtName", "性别");
 		int count=sysDictionaryTypeDao.getSysDictionaryTypeCount(m);
 		log.debug(count);
@@ -33,7 +33,7 @@ public class SysDictionaryTypeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysDictionaryTypeList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sdtName", "性别");
 		List<Map<String, Object>> dataList=sysDictionaryTypeDao.getSysDictionaryTypeList(m);
 		log.debug(dataList);
@@ -42,7 +42,7 @@ public class SysDictionaryTypeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysDictionaryTypeAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sdtName", "tmptest测试junit");
 		int effectLine=sysDictionaryTypeDao.sysDictionaryTypeAdd(m);
 		log.debug(effectLine);
@@ -50,7 +50,7 @@ public class SysDictionaryTypeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysDictionaryTypeEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sdtId", "B01D300EB18B4B56B64DC6F455E5F7B0");
 		m.put("sdtName", "测试junit");
 		int effectLine=sysDictionaryTypeDao.sysDictionaryTypeEdit(m);

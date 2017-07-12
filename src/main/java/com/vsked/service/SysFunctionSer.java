@@ -29,7 +29,7 @@ public class SysFunctionSer extends BaseService {
 		try {
 			count = sysFunctionDao.getSysFunctionCount(m);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -40,7 +40,7 @@ public class SysFunctionSer extends BaseService {
 		Map<String, Object> m=new HashMap<String, Object>();
 		dataList=sysFunctionDao.getSysFunctionList(m);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return dataList;
 	}
@@ -65,7 +65,7 @@ public class SysFunctionSer extends BaseService {
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -82,7 +82,7 @@ public class SysFunctionSer extends BaseService {
 				result="功能:"+data.get("sfValue")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="功能添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -99,7 +99,7 @@ public class SysFunctionSer extends BaseService {
 				result="功能:"+data.get("sfValue")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="功能修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -115,7 +115,7 @@ public class SysFunctionSer extends BaseService {
 			result="functionEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

@@ -34,7 +34,7 @@ public class SysPermissionSer extends BaseService{
 		try{
 			count=sysPermissionDao.getSysPermissionCount(m);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -44,7 +44,7 @@ public class SysPermissionSer extends BaseService{
 		try{
 			m=sysPermissionDao.getSysPermissionBySpId(spId);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return m;
 	}
@@ -69,7 +69,7 @@ public class SysPermissionSer extends BaseService{
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -83,7 +83,7 @@ public class SysPermissionSer extends BaseService{
 		    String dataListJson=BaseJson.listToJson(dataList);
 		    sb.append(dataListJson);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -100,7 +100,7 @@ public class SysPermissionSer extends BaseService{
 				result="权限:"+data.get("spName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="权限添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -117,7 +117,7 @@ public class SysPermissionSer extends BaseService{
 				result="权限:"+data.get("spNick")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="权限修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -133,7 +133,7 @@ public class SysPermissionSer extends BaseService{
 			result="permissionEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}
@@ -156,7 +156,7 @@ public class SysPermissionSer extends BaseService{
 				flag=true;
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return flag+"";
 	}

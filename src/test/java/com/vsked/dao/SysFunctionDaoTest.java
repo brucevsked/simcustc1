@@ -19,7 +19,7 @@ public class SysFunctionDaoTest extends TestMyBatis{
 
 //	@Test
 	public void getSysFunction(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sfId", "40000000000000000000000000000001");
 //		m.put("sfValue", "/LoginController/login.html");
 		List<Map<String, Object>> functionList=sysFunctionDao.getSysFunctionList(m);
@@ -29,7 +29,7 @@ public class SysFunctionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysFunctionCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sfId", "40000000000000000000000000000001");
 		m.put("sfValue", "/LoginController/login.html");
 		int functionCount=sysFunctionDao.getSysFunctionCount(m);
@@ -45,7 +45,7 @@ public class SysFunctionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysFunctionAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sfValue", "/junit.html");
 		m.put("spId", "20000000000000000000000000000001");
 		m.put("srId", "30000000000000000000000000000001");
@@ -57,7 +57,7 @@ public class SysFunctionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysFunctionEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sfId", "A89B644D9D7E4C86A8DC3BB480F3AA6D");
 		m.put("sfValue", "/junitfixed.html");
 		m.put("spId", "20000000000000000000000000000002");

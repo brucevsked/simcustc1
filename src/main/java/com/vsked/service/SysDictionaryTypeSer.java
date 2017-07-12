@@ -30,7 +30,7 @@ public class SysDictionaryTypeSer extends BaseService{
 		try{
 			count=sysDictionaryTypeDao.getSysDictionaryTypeCount(m);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -60,7 +60,7 @@ public class SysDictionaryTypeSer extends BaseService{
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -74,7 +74,7 @@ public class SysDictionaryTypeSer extends BaseService{
 		String dataListJson=BaseJson.listToJson(dataList);
 		sb.append(dataListJson);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -91,7 +91,7 @@ public class SysDictionaryTypeSer extends BaseService{
 				result="字典类型:"+data.get("sdtName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="字典类型添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -108,7 +108,7 @@ public class SysDictionaryTypeSer extends BaseService{
 				result="字典类型:"+data.get("sdtName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="字典类型修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -124,7 +124,7 @@ public class SysDictionaryTypeSer extends BaseService{
 			result="dictionaryTypeEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

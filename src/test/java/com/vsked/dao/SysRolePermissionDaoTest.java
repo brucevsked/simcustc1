@@ -59,7 +59,7 @@ public class SysRolePermissionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysRolePermissionAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("srId", "44C3CE3C132E4B879CC989EB62ACD8FE");
 		m.put("spId", "7EA13C785165492EAA34CA21681E083F");
 		int effectLine=sysRolePermissionDao.sysRolePermissionAdd(m);

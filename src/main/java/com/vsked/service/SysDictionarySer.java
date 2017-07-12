@@ -29,7 +29,7 @@ public class SysDictionarySer extends BaseService {
 		try {
 			count = sysDictionaryDao.getSysDictionaryCount(m);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -54,7 +54,7 @@ public class SysDictionarySer extends BaseService {
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -71,7 +71,7 @@ public class SysDictionarySer extends BaseService {
 				result="字典:"+data.get("sdName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="字典添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -88,7 +88,7 @@ public class SysDictionarySer extends BaseService {
 				result="字典:"+data.get("sdName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="字典修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -104,7 +104,7 @@ public class SysDictionarySer extends BaseService {
 			result="dictionaryEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

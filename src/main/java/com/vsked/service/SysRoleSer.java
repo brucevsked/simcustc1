@@ -26,7 +26,7 @@ public class SysRoleSer extends BaseService{
 		try{
 			count=sysRoleDao.getSysRoleCount(m);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -56,7 +56,7 @@ public class SysRoleSer extends BaseService{
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -73,7 +73,7 @@ public class SysRoleSer extends BaseService{
 				result="角色:"+data.get("srName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="角色添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -90,7 +90,7 @@ public class SysRoleSer extends BaseService{
 				result="角色:"+data.get("srName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="角色修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -106,7 +106,7 @@ public class SysRoleSer extends BaseService{
 			result="roleEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

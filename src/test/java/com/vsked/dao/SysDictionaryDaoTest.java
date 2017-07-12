@@ -18,7 +18,7 @@ public class SysDictionaryDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysDictionaryCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sdName", "男");
 //		m.put("sdValue", "1");
 //		m.put("sdtName", "性别");
@@ -28,7 +28,7 @@ public class SysDictionaryDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysDictionaryList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("sdName", "男");
 //		m.put("sdValue", "1");
 //		m.put("sdtName", "性别");
@@ -54,7 +54,7 @@ public class SysDictionaryDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysDictionaryAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sdName", "电商组");
 		m.put("sdValue", "dsz");
 		m.put("sdSort", "0");
@@ -65,7 +65,7 @@ public class SysDictionaryDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysDictionaryEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("sdId", "6AB6878998234B19B61B52E1822133DC");
 		m.put("sdName", "电商组a");
 		m.put("sdValue", "dszf");

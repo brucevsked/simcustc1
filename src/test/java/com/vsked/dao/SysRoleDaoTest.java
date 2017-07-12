@@ -26,7 +26,7 @@ public class SysRoleDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysRoleCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("srName", "超级管理员");
 		int roleCount=sysRoleDao.getSysRoleCount(m);
 		log.debug(roleCount);
@@ -34,7 +34,7 @@ public class SysRoleDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysRoleList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("srName", "超级管理员");
 		List<Map<String, Object>> roleList=sysRoleDao.getSysRoleList(m);
 		log.debug(roleList);
@@ -43,7 +43,7 @@ public class SysRoleDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysRoleAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("srName", "tmptestrole测试junit角色");
 		int effectLine=sysRoleDao.sysRoleAdd(m);
 		log.debug(effectLine);
@@ -51,7 +51,7 @@ public class SysRoleDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysRoleEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("srId", "241490E510AB49198A944017DABAD831");
 		m.put("srName", "测试junit角色");
 		int effectLine=sysRoleDao.sysRoleEdit(m);

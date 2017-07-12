@@ -8,7 +8,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 public  class BaseJson {
-	//TODO fixed here
+	
 	static Gson gson = new GsonBuilder().serializeNulls().create();
 	
 	public static String objectToJson(Object o){

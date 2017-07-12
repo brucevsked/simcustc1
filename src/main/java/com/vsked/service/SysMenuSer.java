@@ -27,7 +27,7 @@ public class SysMenuSer extends BaseService {
 		try {
 			count = sysMenuDao.getSysMenuCount(m);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -52,7 +52,7 @@ public class SysMenuSer extends BaseService {
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -66,7 +66,7 @@ public class SysMenuSer extends BaseService {
 		String dataListJson=BaseJson.listToJson(dataList);
 		sb.append(dataListJson);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -83,7 +83,7 @@ public class SysMenuSer extends BaseService {
 				result="菜单:"+data.get("smName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="菜单添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -100,7 +100,7 @@ public class SysMenuSer extends BaseService {
 				result="菜单:"+data.get("smName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="菜单修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -116,7 +116,7 @@ public class SysMenuSer extends BaseService {
 			result="menuEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}
@@ -134,7 +134,7 @@ public class SysMenuSer extends BaseService {
 			String dataListJson=BaseJson.listToJson(dataList);
 			sb.append(dataListJson);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sb.toString();
 	}

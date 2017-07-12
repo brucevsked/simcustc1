@@ -35,7 +35,7 @@ public class SysRoleMenuDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysRoleMenuAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("srId", "30000000000000000000000000000002");
 		m.put("smId", "DB5B0B8AA0DD408BB70E7C6DB15B5F30");
 		int effectLine=sysRoleMenuDao.sysRoleMenuAdd(m);

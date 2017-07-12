@@ -29,7 +29,7 @@ public class CarrierSer extends BaseService {
 		try {
 			count = carrierDao.getCarrierCount(m);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -54,7 +54,7 @@ public class CarrierSer extends BaseService {
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -71,7 +71,7 @@ public class CarrierSer extends BaseService {
 				result="运营商:"+data.get("carrierName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="运营商添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -88,7 +88,7 @@ public class CarrierSer extends BaseService {
 				result="运营商:"+data.get("carrierName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="运营商修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -104,7 +104,7 @@ public class CarrierSer extends BaseService {
 			result="carrierEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

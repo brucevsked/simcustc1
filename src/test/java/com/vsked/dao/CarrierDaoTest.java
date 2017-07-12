@@ -17,7 +17,7 @@ public class CarrierDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysCarrierCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("carrierName", "通信");
 //		m.put("carrierNick", "远特");
 //		m.put("carrierShortName", "远特");
@@ -27,7 +27,7 @@ public class CarrierDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysCarrierList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("carrierName", "通信");
 //		m.put("carrierNick", "远特");
 //		m.put("carrierShortName", "远特");
@@ -45,7 +45,7 @@ public class CarrierDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void carrierAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("carrierName", "联想通信");
 		m.put("carrierNick", "懂的通信");
 		m.put("carrierShortName", "联想");
@@ -57,7 +57,7 @@ public class CarrierDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void carrierEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("carrierId", "44E11BFDCB414153A2E7A616402A7B11");
 		m.put("carrierName", "联想通信");
 		m.put("carrierNick", "懂的通信");

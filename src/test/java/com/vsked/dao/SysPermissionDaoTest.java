@@ -26,7 +26,7 @@ public class SysPermissionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysPermissionCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("spNick", "用户列表");
 		int permissionCount=sysPermissionDao.getSysPermissionCount(m);
 		log.debug(permissionCount);
@@ -35,7 +35,7 @@ public class SysPermissionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysPermissionList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("spNick", "用户列表");
 		List<Map<String, Object>> permissionList=sysPermissionDao.getSysPermissionList(m);
 		log.debug(permissionList);
@@ -44,7 +44,7 @@ public class SysPermissionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysPermissionAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("spName", "test:edit");
 		m.put("spNick", "单元测试");
 		int effectLine=sysPermissionDao.sysPermissionAdd(m);
@@ -54,7 +54,7 @@ public class SysPermissionDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysPermissionEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("spId", "79BB89A755BA4F78B3E7D4C5CC26B99E");
 		m.put("spName", "test:edit1");
 		m.put("spNick", "单元测试1");

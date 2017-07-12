@@ -29,7 +29,7 @@ public class SysOrganizeSer extends BaseService {
 		try {
 			count = sysOrganizeDao.getSysOrganizeCount(m);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return count;
 	}
@@ -54,7 +54,7 @@ public class SysOrganizeSer extends BaseService {
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -67,7 +67,7 @@ public class SysOrganizeSer extends BaseService {
 		String dataListJson=BaseJson.listToJson(dataList);
 		sb.append(dataListJson);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -84,7 +84,7 @@ public class SysOrganizeSer extends BaseService {
 				result="组织:"+data.get("soName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="组织添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -101,7 +101,7 @@ public class SysOrganizeSer extends BaseService {
 				result="组织:"+data.get("soName")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="组织修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -117,7 +117,7 @@ public class SysOrganizeSer extends BaseService {
 			result="organizeEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}

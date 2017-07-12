@@ -19,7 +19,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysOrganizeCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("soName", "B");
 		m.put("soCode", "b");
 		m.put("soName1", "山东");
@@ -29,7 +29,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysOrganizeList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 //		m.put("soName", "B");
 		m.put("soCode", "b");
 //		m.put("soName1", "山东");
@@ -47,7 +47,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysOrganizeAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("soName", "电商组");
 		m.put("soCode", "dsz");
 		m.put("soSort", "3");
@@ -58,7 +58,7 @@ public class SysOrganizeDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysOrganizeEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("soId", "01A7123FE7AC48668515568E685FC41B");
 		m.put("soName", "电商组");
 		m.put("soCode", "dsz");

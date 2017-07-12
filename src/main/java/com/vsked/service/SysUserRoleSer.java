@@ -36,7 +36,7 @@ public class SysUserRoleSer extends BaseService {
 				
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return resultPage;
 	}
@@ -51,7 +51,7 @@ public class SysUserRoleSer extends BaseService {
 				sb.append(dataListJson);
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sb.toString();
 	}
@@ -66,7 +66,7 @@ public class SysUserRoleSer extends BaseService {
 				sb.append(dataListJson);
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sb.toString();
 	}
@@ -76,7 +76,7 @@ public class SysUserRoleSer extends BaseService {
 		try{
 			dataList=sysUserRoleDao.getSysUserRoleListBySuId(suId);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return dataList;
 	}
@@ -88,7 +88,7 @@ public class SysUserRoleSer extends BaseService {
 				flag=true;
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return flag;
 	}
@@ -119,7 +119,7 @@ public class SysUserRoleSer extends BaseService {
 				result="参数不完整请联系管理员.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="角色绑定出现异常,请联系管理员.";
 			//手动回滚事务
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();

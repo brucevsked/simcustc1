@@ -48,7 +48,7 @@ public class SysUserSer extends BaseService{
 				return "login";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			getSession().setAttribute("backMsg", "用户名或密码错误请重新输入！");
 			return "login";
 		}
@@ -64,7 +64,7 @@ public class SysUserSer extends BaseService{
 		try{
 			m=sysUserDao.getSysUserBySuName(suName);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return m;
 	}
@@ -79,7 +79,7 @@ public class SysUserSer extends BaseService{
 		try{
 			m=sysUserDao.getSysUserBySuId(suId);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return m;
 	}
@@ -94,7 +94,7 @@ public class SysUserSer extends BaseService{
 		try{
 			sysUserCount=sysUserDao.getSysUserCount(m);
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return sysUserCount;
 	}
@@ -120,7 +120,7 @@ public class SysUserSer extends BaseService{
 		sb.append(dataListJson);
 		sb.append("}");
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		
 		return sb.toString();
@@ -144,7 +144,7 @@ public class SysUserSer extends BaseService{
 				result="用户:"+data.get("suName")+"添加成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="用户添加出现异常,请联系管理员.";
 		}
 		return result;
@@ -161,7 +161,7 @@ public class SysUserSer extends BaseService{
 				result="用户:"+data.get("suNick")+"修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="用户修改出现异常,请联系管理员.";
 		}
 		return result;
@@ -177,7 +177,7 @@ public class SysUserSer extends BaseService{
 			result="userEdit";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}
@@ -190,7 +190,7 @@ public class SysUserSer extends BaseService{
 			getSession().setAttribute("data", parMap.get("suId"));
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 		}
 		return result;
 	}
@@ -224,7 +224,7 @@ public class SysUserSer extends BaseService{
 				result="密码修改成功.";
 			}
 		}catch(Exception e){
-			log.error(e.getMessage());
+			log.error(e);
 			result="密码修改出现异常,请联系管理员.";
 		}
 		return result;

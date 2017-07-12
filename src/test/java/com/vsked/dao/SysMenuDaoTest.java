@@ -19,7 +19,7 @@ public class SysMenuDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysMenuCount(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("smName", "");
 		m.put("smHref", "");
 		m.put("smClick", "");
@@ -30,7 +30,7 @@ public class SysMenuDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void getSysMenuList(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("smName", "");
 		m.put("smHref", "");
 		m.put("smClick", "");
@@ -57,7 +57,7 @@ public class SysMenuDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysMenuAdd(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("smName", "testmenu");
 		m.put("smHref", "");
 		m.put("smClick", "");
@@ -70,7 +70,7 @@ public class SysMenuDaoTest extends TestMyBatis{
 	
 //	@Test
 	public void sysMenuEdit(){
-		Map<String, Object> m=new HashMap<String, Object>();
+		Map<String, Object> m=new HashMap<>();
 		m.put("smId", "DB5B0B8AA0DD408BB70E7C6DB15B5F30");
 		m.put("smName", "testmenuedit");
 		m.put("smHref", "");
